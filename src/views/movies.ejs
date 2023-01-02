@@ -1,0 +1,992 @@
+<!doctype html>
+<html lang="zxx">
+
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Movies</title>
+	<link rel="stylesheet" href="/assets/css/style-starter.css">
+	<link href="//fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,600&display=swap"
+		rel="stylesheet">
+	
+</head>
+
+<body>
+	<!-- header -->
+	<header id="site-header" class="w3l-header fixed-top">
+		<!--/nav-->
+		<nav class="navbar navbar-expand-lg navbar-light fill px-lg-0 py-0 px-3">
+			<div class="container">
+				<h1><a class="navbar-brand" href="/"><span class="fa fa-play icon-log"
+							aria-hidden="true"></span>
+							Movie-Ticket-Booking_Group14 </a></h1>
+				<!-- if logo is image enable this   
+							<a class="navbar-brand" href="#index.html">
+								<img src="image-path" alt="Your logo" title="Your logo" style="height:35px;" />
+							</a> -->
+				<button class="navbar-toggler collapsed" type="button" data-toggle="collapse"
+					data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+					aria-label="Toggle navigation">
+					<!-- <span class="navbar-toggler-icon"></span> -->
+					<span class="fa icon-expand fa-bars"></span>
+					<span class="fa icon-close fa-times"></span>
+				</button>
+
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav ml-auto">
+						<li class="nav-item active">
+							<a class="nav-link" href="/">Home</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="/movies">Movies</a>
+						</li>
+						
+						<li class="nav-item">
+							<a class="nav-link" href="/Contact_Us">Contact</a>
+						</li>
+					</ul>
+
+					<!--/search-right-->
+					<!--/search-right-->
+					<div class="search-right">
+						<a href="#search" class="btn search-hny mr-lg-3 mt-lg-0 mt-4" title="search">Search <span
+								class="fa fa-search ml-3" aria-hidden="true"></span></a>
+						<!-- search popup -->
+						<div id="search" class="pop-overlay">
+							<div class="popup">
+								<form action="#" method="post" class="search-box">
+									<input type="search" placeholder="Search your Keyword" name="search"
+										required="required" autofocus="">
+									<button type="submit" class="btn"><span class="fa fa-search"
+											aria-hidden="true"></span></button>
+								</form>
+								<div class="browse-items">
+									<h3 class="hny-title two mt-md-5 mt-4">Browse all:</h3>
+									<ul class="search-items">
+										<li><a href="movies.html">Action</a></li>
+										<li><a href="movies.html">Drama</a></li>
+										<li><a href="movies.html">Family</a></li>
+										<li><a href="movies.html">Thriller</a></li>
+										<li><a href="movies.html">Commedy</a></li>
+										<li><a href="movies.html">Romantic</a></li>
+										<li><a href="movies.html">Tv-Series</a></li>
+										<li><a href="movies.html">Horror</a></li>
+										<li><a href="movies.html">Action</a></li>
+										<li><a href="movies.html">Drama</a></li>
+										<li><a href="movies.html">Family</a></li>
+										<li><a href="movies.html">Thriller</a></li>
+										<li><a href="movies.html">Commedy</a></li>
+										<li><a href="movies.html">Romantic</a></li>
+										<li><a href="movies.html">Tv-Series</a></li>
+										<li><a href="movies.html">Horror</a></li>
+									</ul>
+								</div>
+							</div>
+							<a class="close" href="#close">×</a>
+						</div>
+						<!-- /search popup -->
+						<!--/search-right-->
+
+					</div>
+					<% if(typeof dataUser == 'undefined'){ %>
+						<div class="Login_SignUp" id="login"
+							style="font-size: 2rem ; display: inline-block; position: relative;">
+							<!-- <li class="nav-item"> -->
+								<a class="nav-link" href="/sign_in"><i class="fa fa-user-circle-o"></i></a>
+								<!-- </li> -->
+						</div>
+					<% }else{ %>
+						<span>
+							<%=dataUser[0].TEN%>
+						</span>
+
+						<form action="/process_sign_out">
+							<button>Đăng xuất</button>
+						</form>
+					<% } %>
+				</div>
+				<!-- toggle switch for light and dark theme -->
+				<div class="mobile-position">
+					<nav class="navigation">
+						<div class="theme-switch-wrapper">
+							<label class="theme-switch" for="checkbox">
+								<input type="checkbox" id="checkbox">
+								<div class="mode-container">
+									<i class="gg-sun"></i>
+									<i class="gg-moon"></i>
+								</div>
+							</label>
+						</div>
+					</nav>
+				</div>
+			</div>
+		</nav>
+	</header>
+	<!--/breadcrumbs -->
+	
+	<!--/movies -->
+	<!--grids-sec1-->
+	<!--grids-sec1-->
+	<section class="w3l-grids">
+		<div class="grids-main py-5">
+			<div class="container py-lg-4">
+				<div class="headerhny-title">
+					<div class="w3l-title-grids">
+						<div class="headerhny-left">
+							<h3 class="hny-title">PHIM ĐANG CHIẾU</h3>
+						</div>
+						<div class="headerhny-right text-lg-right">
+							<h4><a class="show-title" href="movies.html">Show all</a></h4>
+						</div>
+					</div>
+				</div>
+				<div class="w3l-populohny-grids">
+					<div class="item vhny-grid">
+						<div class="box16 mb-0">
+							<figure>
+								<img class="img-fluid" src="assets/images/banner1_.jpg" alt="">
+							</figure>
+							<a href=".Commando3" data-toggle="modal">
+								<div class="box-content">
+									<h3 class="title">Avatar: Dòng chảy của nước</h3>
+									<h4> <span class="post"><span class="fa fa-clock-o"> </span> 1 Hr 40min
+
+										</span>
+
+										<span class="post fa fa-heart text-right"></span>
+									</h4>
+								</div>
+							</a>
+							<!-- Modal -->
+							<div class="modal fade Commando3" id="myModal" tabindex="-1" role="dialog"
+								aria-hidden="true">
+								<div class="modal-dialog" role="document">
+									<div class="modal-content" id="mymodalcontent">
+										<div class="modal-header">
+											<h4 class="modal-title" id="exampleModalLongTitle">CHI TIẾT</h4>
+											<button type="button" class="closebtn" data-dismiss="modal"
+												aria-label="Close">
+												<span aria-hidden="true">&times;</span>
+											</button>
+										</div>
+										<div class="modal-body" id="dynamic-content">
+											<img src="assets/images/banner1_.jpg" class="img-fluid modalimg" alt="" />
+											<p>
+												<h3>Ngày khởi chiếu&nbsp;: 10/12/2022</h3>
+												<h3>Đạo diễn&nbsp;: James Cameroon</h3>
+											</p>
+											<h4>Nội dung phim</h4>
+											<p>
+												Những trích đoạn đầu tiên hé lộ diễn biến cuộc chiến tiếp theo giữa loài người và bộ tộc người Na’vi của hành tinh Pandora, vốn bắt đầu từ phần một. Hành tinh Pandora rực rỡ ở ngay phân cảnh đầu tiên. Tiếp đến, công chúa Neytiri (Zoe Saldana thủ vai) xuất hiện với đôi mắt tràn đầy cảm xúc dưới ánh nắng trong veo. Người xem được đi sâu vào khám phá hành tinh Pandora với nhiều cảnh quan đáng kinh ngạc, trong đó có dưới lòng đại dương sâu thẳm với những loài sinh vật kỳ bí, đúng như tên gọi của phần hai – The Way Of Water.  Năm 2009, bom tấn Avatar của đạo diễn James Cameron công phá phòng vé với doanh thu cao kỷ lục. Avatar như một cột mốc đáng nhớ trong lịch sử điện ảnh, được xem như cuộc cách mạng của công nghệ CGI và cả kỹ xảo 3D. Thành công ngoài mong đợi trong “canh bạc” mạo hiểm mang tên Avatar chính là động lực để James Cameron tự tin với ý tưởng thực hiện Avatar: The Way Of Water. Phần tiếp theo sẽ khai thác về thế giới dưới nước trên Pandora. Bối cảnh tại một vùng vịnh và lấy mốc thời gian cặp đôi Jake Sully và Neytiri đã có con với nhau. Đúng vào lúc này, mối đe dọa từ loài người ở Trái Đất đang cận kề, việc này bắt buộc họ phải tìm cách bảo vệ hành tinh của mình. Do luôn có sự hứng thú với đại dương to lớn, nên chủ đề của Avatar phần mới được di chuyển xuống biển. Một hồ nước khổng lồ được xây dựng với mục đích phục vụ cho công tác quay phim. Bên cạnh đó, nhiều thiết bị ghi hình tối tân nhất cũng được trang bị để đảm bảo cho khâu hình ảnh chỉn chu nhất. Có thể thấy Avatar: The Way Of Water hứa hẹn sẽ là siêu phẩm được mong chờ nhất trong thời gian sắp tới. Tác phẩm ra rạp vào 16.12.2022. Ngoài ra phần 3, 4, 5 cũng được ấn định ra rạp lần lượt vào 2024 – 2026 – 2028. Phim mới Avatar: The Way of Water ra mắt tại các rạp chiếu phim 12.2022. 
+											</p>
+											<h4>Diễn viên</h4>
+											<p>
+												Sam Worthington, Zoe Saldana, Kate Winslet, Sigourney Weaver, Stephen Lang
+											</p>
+										</div>
+										<div class="bookbtn">
+											<button type="button" class="btn btn-success"
+												onclick="location.href='ticket-booking.html';">Đặt vé</button>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- modal end -->
+						</div>
+					</div>
+					<div class="item vhny-grid">
+						<div class="box16 mb-0">
+							<figure>
+								<img class="img-fluid" src="assets/images/banner2_.jpg" alt="">
+							</figure>
+							<a href=".Knivesout" data-toggle="modal">
+								<div class="box-content">
+									<h3 class="title">Big trip 2: Spical Delivery</h3>
+									<h4> <span class="post"><span class="fa fa-clock-o"> </span> 2 Hr 10min
+
+										</span>
+
+										<span class="post fa fa-heart text-right"></span>
+									</h4>
+								</div>
+							</a>
+							<!-- Modal -->
+							<div class="modal fade Knivesout" id="myModal" tabindex="-1" role="dialog"
+								aria-hidden="true">
+								<div class="modal-dialog" role="document">
+									<div class="modal-content" id="mymodalcontent">
+										<div class="modal-header">
+											<h4 class="modal-title" id="exampleModalLongTitle">CHI TIẾT</h4>
+											<button type="button" class="closebtn" data-dismiss="modal"
+												aria-label="Close">
+												<span aria-hidden="true">&times;</span>
+											</button>
+										</div>
+										<div class="modal-body" id="dynamic-content">
+											<img src="assets/images/banner2_.jpg" class="img-fluid modalimg" alt="" />
+											<p>
+												<h3>Ngày khởi chiếu&nbsp;: 17/12/2022 </h3>
+												<h3>Đạo diễn&nbsp;: Vasiliy Rovenskiy</h3>
+											</p>
+											<h4>Nội dung phim</h4>
+											<p>
+												Đã một năm kể từ khi chú gấu Mic-Mic và chú thỏ Oscar trở lại sau cuộc phiêu lưu kỳ thú của họ. Và lần này, hai người bạn của chúng ta sẽ lại một lần nữa dính vào “phi vụ bất đắc dĩ” khi từ trên trời rơi xuống một bé gấu nâu Grizzly buộc họ phải thực hiện nhiệm vụ giao bé về cho bố mẹ một cách an toàn. Kế hoạch này bị kền kền quỷ quyệt Vulture quyết tâm phá hoại. Mic Mic, Oscar, cậu thiếu niên Panda và chú cò Stork sẽ cùng nhau di chuyển bằng khinh khí cầu để bắt đầu một cuộc phiêu lưu mới, trả lại Grizzly bé nhỏ cha mẹ của nó, cứu cuộc bầu cử ở Mỹ và cả lục địa khỏi ngọn núi lửa đang phun trào. Phim mới Chuyến Đi Nhớ Đời: Tiểu Đội Gấu Bay, ra mắt tại các rạp chiếu phim từ 23.12.2022. 
+											</p>
+											<h4>Diễn viên</h4>
+											<p>
+												Daniel Medvedev, Bernard Jacobsen, Stephen Thomas Ochsner
+											</p>
+										</div>
+										<div class="bookbtn">
+											<button type="button" class="btn btn-success"
+												onclick="location.href='ticket-booking.html';">Đặt vé</button>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- modal end -->
+
+						</div>
+					</div>
+					<div class="item vhny-grid">
+						<div class="box16 mb-0">
+							<figure>
+								<img class="img-fluid" src="assets/images/banner3_.jpg" alt="">
+							</figure>
+							<a href=".Bharat" data-toggle="modal">
+								<div class="box-content">
+									<h3 class="title">Âm lượng hủy diệt</h3>
+									<h4> <span class="post"><span class="fa fa-clock-o"> </span> 2 Hr 35min
+
+										</span>
+
+										<span class="post fa fa-heart text-right"></span>
+									</h4>
+								</div>
+							</a>
+							<!-- Modal -->
+							<div class="modal fade Bharat" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
+								<div class="modal-dialog" role="document">
+									<div class="modal-content" id="mymodalcontent">
+										<div class="modal-header">
+											<h4 class="modal-title" id="exampleModalLongTitle">CHI TIẾT</h4>
+											<button type="button" class="closebtn" data-dismiss="modal"
+												aria-label="Close">
+												<span aria-hidden="true">&times;</span>
+											</button>
+										</div>
+										<div class="modal-body" id="dynamic-content">
+											<img src="assets/images/banner3_.jpg" class="img-fluid modalimg" alt="" />
+											<p>
+												<h3>Ngày khởi chiếu&nbsp;: 8/12/2022 </h3>
+												<h3>Đạo diễn&nbsp;: Hwang In Ho </h3>
+											</p>
+											<h4>Nội dung phim</h4>
+											<p>
+												Tác phẩm xoay quanh nhân vật cựu phó đô đốc hải quân Kang Do Young (Kim Rae Won). Một ngày nọ, anh bị vướng vào chuỗi đánh bom khủng bố bằng bom phản ứng âm thanh được chế tạo bởi kẻ ẩn danh (Lee Jong Suk), Do Young phải chạy đua với thời gian để vừa vạch trần danh tính kẻ thủ ác, vừa chứng tỏ bản thân mình hoàn toàn trong sạch. 
+												Phim mới Âm Lượng Hủy Diệt, ra mắt tại các rạp chiếu phim từ 09.12.2022.
+											</p>
+											<h4>Diễn viên</h4>
+											<p>
+												Lee Jong Suk, Kim Rae Won, Park Byung Eun, Cha Eun Woo
+											</p>
+										</div>
+										<div class="bookbtn">
+											<button type="button" class="btn btn-success"
+												onclick="location.href='ticket-booking.html';">Đặt vé</button>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- modal end -->
+						</div>
+					</div>
+					<div class="item vhny-grid">
+						<div class="box16 mb-0">
+							<figure>
+								<img class="img-fluid" src="assets/images/banner5.jpg" alt="">
+							</figure>
+							<a href=".Jumanji" data-toggle="modal">
+								<div class="box-content">
+									<h3 class="title">Hạnh phúc máu</h3>
+									<h4> <span class="post"><span class="fa fa-clock-o"> </span> 2 Hr 3min
+
+										</span>
+
+										<span class="post fa fa-heart text-right"></span>
+									</h4>
+								</div>
+							</a>
+							<!-- Modal -->
+							<div class="modal fade Jumanji" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
+								<div class="modal-dialog" role="document">
+									<div class="modal-content" id="mymodalcontent">
+										<div class="modal-header">
+											<h4 class="modal-title" id="exampleModalLongTitle">CHI TIẾT</h4>
+											<button type="button" class="closebtn" data-dismiss="modal"
+												aria-label="Close">
+												<span aria-hidden="true">&times;</span>
+											</button>
+										</div>
+										<div class="modal-body" id="dynamic-content">
+											<img src="assets/images/banner5.jpg" class="img-fluid modalimg" alt="" />
+											<p>
+												<h3>Ngày khởi chiếu&nbsp;: 24/11/2022 </h3>
+												<h3>Đạo diễn&nbsp;: Nguyễn Chung </h3>
+											</p>
+											<h4>Nội dung phim</h4>
+											<p>
+												Hạnh Phúc Máu kể về cuộc đời của Hà Phương (NSND Kim Xuân) và câu chuyện gia tộc Vương Đình với một đức tin lạ vận hành niềm tin, sự thịnh vượng của gia tộc. Vào sự kiện quan trọng của gia tộc hàng loạt thảm kịch xảy ra. Sự thật trần trụi về những người chung một dòng máu nhưng khác cuộc đời được phơi bày. Phim mới Hạnh Phúc Máu ra mắt tại các rạp chiếu phim toàn quốc từ 25.11.2022.   
+											</p>
+											<h4>Diễn viên</h4>
+											<p>
+												NSND Kim Xuân, Phạm Huỳnh Hữu Tài, Dược Sĩ Tiến
+
+											</p>
+										</div>
+										<div class="bookbtn">
+											<button type="button" class="btn btn-success"
+												onclick="location.href='ticket-booking.html';">Đặt vé</button>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- modal end -->
+
+						</div>
+					</div>
+				</div>
+				<!-- ***********************************Adults Section ************************************** -->
+				<div class="w3l-title-grids">
+					<div class="headerhny-left">
+						<h3 class="hny-title">PHIM SẮP CHIẾU</h3>
+					</div>
+					<div class="headerhny-right text-lg-right">
+						<h4><a class="show-title" href="movies.html">Show all</a></h4>
+					</div>
+				</div>
+				<div class="w3l-populohny-grids">
+					<div class="item vhny-grid">
+						<div class="box16 mb-0">
+							<figure>
+								<img class="img-fluid" src="assets/images/banner6.jpg" alt="">
+							</figure>
+							<a href=".Rocketman" data-toggle="modal">
+								<div class="box-content">
+									<h3 class="title">Đảo Độc Đắc - Tử Mẫu Thiên Linh Cái </h3>
+									<h4> <span class="post"><span class="fa fa-clock-o"> </span> 2 Hr 1min
+
+										</span>
+
+										<span class="post fa fa-heart text-right"></span>
+									</h4>
+								</div>
+							</a>
+							<!-- Modal -->
+							<div class="modal fade Rocketman" id="myModal" tabindex="-1" role="dialog"
+								aria-hidden="true">
+								<div class="modal-dialog" role="document">
+									<div class="modal-content" id="mymodalcontent">
+										<div class="modal-header">
+											<h4 class="modal-title" id="exampleModalLongTitle">CHI TIẾT</h4>
+											<button type="button" class="closebtn" data-dismiss="modal"
+												aria-label="Close">
+												<span aria-hidden="true">&times;</span>
+											</button>
+										</div>
+										<div class="modal-body" id="dynamic-content">
+											<img src="assets/images/banner6.jpg" class="img-fluid modalimg" alt="" />
+											<p>
+												<h3>Ngày khởi chiếu&nbsp;: 23/12/2022 </h3>
+												<h3>Đạo diễn&nbsp;: Lê Bình Giang </h3>
+											</p>
+											<h4>Nội dung phim</h4>
+											<p>
+												Phiên bản Next Level của thứ b.ùa ng.ãi tâm linh từng rúng động một thời tung teaser poster đầy mùi liêu trai, ma mị với hình ảnh nhân ngư đầy bí ẩn. Bên cạnh đó, dự án quy tụ nhiều gương mặt vừa lạ vừa quen: Trần Nghĩa, Trần Phong, Minh Dự, Phương Lan và đặc biệt là 2 bóng hồng visual Sam, Hoa hậu Tiểu Vy hứa hẹn thổi vào luồng gió mới cho món ăn hấp dẫn lần này. Đảo Độc Đắc - Tử Mẫu Thiên Linh Cái là phim kinh dị tâm linh bí ẩn và đen tối, diễn xuất của Sam trở thành yếu tố khiến người hâm mộ vô cùng trông đợi. Liệu trong vai diễn mới lần này, Sam có phá vỡ được hình tượng trong sáng, thánh thiện đã gắn liền với mình trong nhiều năm? Hay cô nàng sẽ mang đến những màn thể hiện quỷ dị và hắc ám khiến người hâm mộ phải “mắt chữ A, mồm chữ O” như thế nào, tất cả đều sẽ được giải đáp trong Đảo Độc Đắc - Tử Mẫu Thiên Linh Cái. 
+											</p>
+											<h4>Diễn viên</h4>
+											<p>
+												Hoàng Yến Chibi, Sam, Trần Nghĩa, Trần Phong
+											</p>
+										</div>
+										<div class="bookbtn">
+											<!-- window.open('ticket-booking.html','_blank'); -->
+											<button type="button" class="btn btn-success"
+												onclick="location.href='ticket-booking.html';">Đặt vé</button>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- modal end -->
+
+						</div>
+					</div>
+
+					<div class="item vhny-grid">
+						<div class="box16 mb-0">
+							<figure>
+								<img class="img-fluid" src="assets/images/banner7.jpg" alt="">
+							</figure>
+							<a href=".Doctorsleep" data-toggle="modal">
+								<div class="box-content">
+									<h3 class="title">Nhà Bà Nữ</h3>
+									<h4> <span class="post"><span class="fa fa-clock-o"> </span> 2 Hr 32min
+
+										</span>
+
+										<span class="post fa fa-heart text-right"></span>
+									</h4>
+								</div>
+							</a>
+							<!-- Modal -->
+							<div class="modal fade Doctorsleep" id="myModal" tabindex="-1" role="dialog"
+								aria-hidden="true">
+								<div class="modal-dialog" role="document">
+									<div class="modal-content" id="mymodalcontent">
+										<div class="modal-header">
+											<h4 class="modal-title" id="exampleModalLongTitle">CHI TIẾT</h4>
+											<button type="button" class="closebtn" data-dismiss="modal"
+												aria-label="Close">
+												<span aria-hidden="true">&times;</span>
+											</button>
+										</div>
+										<div class="modal-body" id="dynamic-content">
+											<img src="assets/images/banner7.jpg" class="img-fluid modalimg" alt="" />
+											<p>
+												<h3>Ngày khởi chiếu&nbsp;: 22/1/2023 </h3>
+												<h3>Đạo diễn&nbsp;: Trấn Thành </h3>
+											</p>
+											<h4>Nội dung phim</h4>
+											<p>
+												Gia đình chữ “N” mỗi người một cá tính, một sở thích riêng nhưng tất cả đều phải chung tay vào công việc bận rộn của quán bánh canh cua nức tiếng của bà Nữ. Hình ảnh các thành viên gia đình bà Nữ đều rất gần gũi với hình mẫu người phụ nữ trong đời sống thường ngày: bản lĩnh, giỏi giang và thừa sức xoay trở với hằng hà sa số những thử thách trong cuộc sống.  Nhà Bà Nữ tái hiện chân thực cuộc sống thường nhật của một gia đình lao động điển hình, sống bằng nghề bán bánh canh cua.  Nhà Bà Nữ do Kim Entertainment sản xuất, Trấn Thành đạo diễn. Bộ phim hội tụ những tên tuổi diễn viên thân quen với khán giả Việt như: Trấn Thành, Lê Giang, NSND Ngọc Giàu, Khả Như, Huỳnh Uyển Ân, Song Luân, Lê Dương Bảo Lâm, NSND Việt Anh, NSƯT Công Ninh, Ngân Quỳnh, Lý Hạo Mạnh Quỳnh, Phương Lan… Nhà Bà Nữ dự kiến khởi chiếu 22.01.2023 (Mùng Một Tết Quý Mão).  Phim mới Nhà Bà Nữ, ra mắt tại các rạp chiếu phim từ 22.01.2023. 
+											</p>
+											<h4>Diễn viên</h4>
+											<p>
+												Lê Giang, Trấn Thành, Song Luân, Khả Như, Lê Dương Bảo Lâm, NSND Ngọc Giàu
+											</p>
+										</div>
+										<div class="bookbtn">
+											<button type="button" class="btn btn-success"
+												onclick="location.href='ticket-booking.html';">Đặt vé</button>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- modal end -->
+
+						</div>
+					</div>
+					<div class="item vhny-grid">
+						<div class="box16 mb-0">
+							<figure>
+								<img class="img-fluid" src="assets/images/banner8.jpg" alt="">
+							</figure>
+							<a href=".kabir" data-toggle="modal">
+								<div class="box-content">
+									<h3 class="title">Siêu Lừa Gặp Siêu Lầy</h3>
+									<h4> <span class="post"><span class="fa fa-clock-o"> </span> 2 Hr 52min
+
+										</span>
+
+										<span class="post fa fa-heart text-right"></span>
+									</h4>
+								</div>
+							</a>
+							<!-- Modal -->
+							<div class="modal fade kabir" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
+								<div class="modal-dialog" role="document">
+									<div class="modal-content" id="mymodalcontent">
+										<div class="modal-header">
+											<h4 class="modal-title" id="exampleModalLongTitle">CHI TIẾT</h4>
+											<button type="button" class="closebtn" data-dismiss="modal"
+												aria-label="Close">
+												<span aria-hidden="true">&times;</span>
+											</button>
+										</div>
+										<div class="modal-body" id="dynamic-content">
+											<img src="assets/images/banner8.jpg" class="img-fluid modalimg" alt="" />
+											<p>
+												<h3>Ngày khởi chiếu&nbsp;: 22/1/2023 </h3>
+												<h3>Đạo diễn&nbsp;: Võ Thanh Hòa </h3>
+											</p>
+											<h4>Nội dung phim</h4>
+											<p>
+												Thuộc phong cách hành động – hài hước với các “cú lừa” thông minh và lầy lội đến từ bộ đôi Tú (Anh Tú) và Khoa (Mạc Văn Khoa), Siêu Lừa Gặp Siêu Lầy của đạo diễn Võ Thanh Hòa theo chân của Khoa – tên lừa đảo tầm cỡ “quốc nội” đến đảo ngọc Phú Quốc với mong muốn đổi đời. Tại đây, Khoa gặp Tú – tay lừa đảo “hàng real” và cùng Tú thực hiện các phi vụ từ nhỏ đến lớn. Cứ ngỡ sự ranh mãnh của Tú và sự may mắn trời cho của Khoa sẽ giúp họ trở thành bộ đôi bất khả chiến bại, nào ngờ lại đối mặt với nhiều tình huống dở khóc – dở cười. Nhất là khi băng nhóm của bộ đôi nhanh chóng mở rộng vì sự góp mặt của ông Năm (Nhất Trung) và bé Mã Lai (Ngọc Phước). Phim mới Siêu Lừa Gặp Siêu Lầy khởi chiếu Mùng Tết 2023 tại các rạp chiếu phim toàn quốc. 
+											</p>
+											<h4>Diễn viên</h4>
+											<p>
+												Mạc Văn Khoa, Anh Tú
+											</p>
+										</div>
+										<div class="bookbtn">
+											<button type="button" class="btn btn-success"
+												onclick="location.href='ticket-booking.html';">Đặt vé</button>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- modal end -->
+
+						</div>
+					</div>
+					<div class="item vhny-grid">
+						<div class="box16 mb-0">
+							<figure>
+								<img class="img-fluid" src="assets/images/banner9.jpg" alt="">
+							</figure>
+							<a href=".Joker" data-toggle="modal">
+								<div class="box-content">
+									<h3 class="title">Mèo Đi Hia 2</h3>
+									<h4> <span class="post"><span class="fa fa-clock-o"> </span> 2 Hr 2min
+
+										</span>
+
+										<span class="post fa fa-heart text-right"></span>
+									</h4>
+								</div>
+							</a>
+							<!-- Modal -->
+							<div class="modal fade Joker" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
+								<div class="modal-dialog" role="document">
+									<div class="modal-content" id="mymodalcontent">
+										<div class="modal-header">
+											<h4 class="modal-title" id="exampleModalLongTitle">DETAILS</h4>
+											<button type="button" class="closebtn" data-dismiss="modal"
+												aria-label="Close">
+												<span aria-hidden="true">&times;</span>
+											</button>
+										</div>
+										<div class="modal-body" id="dynamic-content">
+											<img src="assets/images/banner9.jpg" class="img-fluid modalimg" alt="" />
+											<p>
+												<h3>Ngày khởi chiếu&nbsp;: 30/12/2022 </h3>
+												<h3>Nhà sản xuất&nbsp;: DreamWorks Animation</h3>
+											</p>
+											<h4>Nội dung phim</h4>
+											<p>
+												Chú mèo Puss giờ đây đã không thể ngạo nghễ chu du mà chẳng màng nguy hiểm như trước nữa, bởi cậu đã mất 8 trong 9 cuộc đời mà mình có. Và với tình hình này, việc đi tìm lại “điều ước cuối cùng” nhằm khôi phục lại các mạng sống trở nên khó khăn hơn bao giờ hết. Thật may cho cậu khi vẫn còn người bạn “lợi hại” sẵn sàng đồng hành – cô mèo Kitty, và một thành viên mới gia nhập, vô cùng “nhắng nhít” và nhiệt tình. Sau khi mất đi mạng sống thứ 8, Puss được bác sĩ thú y khuyên nhủ tới nhà Mama Luna – một bà lão “nghiện” mèo chính hiệu và luôn mở cửa chào đón những chú mèo cưng mới. Dù tâm hồn cự tuyệt nhưng với tình thế gian nan hiện tại, Puss vẫn quyết định tới đó. Tại đây, anh đã gặp Perro – một chú chó trị liệu nhưng “đội lốt” mèo. Tưởng chừng mọi chuyện sẽ êm thấm, nhưng kẻ mà Puss đã từng gây thù chuốc oán vẫn tìm đến tận nơi – cô bé tóc vàng cùng gia đình gấu. Cũng từ lúc này, Perro đã biết được chú mèo nhỏ nhắn chính là Mèo Đi Hia đầy lợi hại vô cùng đáng ngưỡng mộ. Dù tẩu thoát thành công khỏi nhà Mama Luna và tránh được hội “đầu gấu” một phen, Puss đã bị truy nã treo thưởng và bị kẻ săn tiền thưởng hiểm ác Sói Xám truy đuổi. Lúc này đây là một màn “mỹ nhân cứu anh hùng” tới từ cô nàng Kitty Scott Paws. Cùng với sự hỗ trợ của Perro, chuyến phiêu lưu của bộ ba liệu có thể toàn mạng hoàn thành ? Phim mới Puss In Boots 2 ra mắt tại các rạp chiếu phim toàn quốc từ 30.12.2022.  
+											</p>
+											<h4>Diễn viên</h4>
+											<p>
+												Antonio Banderas, Salma Hayek, Florence Pugh, Olivia Colman
+
+
+											</p>
+										</div>
+										<div class="bookbtn">
+											<button type="button" class="btn btn-success"
+												onclick="location.href='ticket-booking.html';">Đặt vé</button>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- modal end -->
+
+						</div>
+					</div>
+				</div>
+				<!-- ***********************************kids Section ************************************** -->
+				
+
+	<section class="w3l-albums py-5" id="projects">
+		<div class="container py-lg-4">
+			<div class="row">
+				<div class="col-lg-12 mx-auto">
+					<!--Horizontal Tab-->
+					<div id="parentHorizontalTab">
+						<ul class="resp-tabs-list hor_1">
+							<li>Top Thịnh Hành</li>
+							<div class="clear"></div>
+						</ul>
+						<div class="resp-tabs-container hor_1">
+							<div class="albums-content">
+								<div class="row">
+									<!--/set1-->
+									<div class="col-lg-4 new-relise-gd mt-lg-0 mt-0">
+										<div class="slider-info">
+											<div class="img-circle">
+												<a href="movies.html">
+
+													<img src="assets/images/ba.jpg" class="img-fluid"
+														alt="author image">
+													
+												</a>
+											</div>
+											<div class="message">
+												<p>Thái Lan</p>
+												<a class="author-book-title" href="movies.html">Ngược Dòng Thời Gian Để Yêu Anh</a>
+												<h4> <span class="post"><span class="fa fa-clock-o"> </span> 2 Hr 4min
+
+													</span>
+
+													<span class="post fa fa-heart text-right"></span>
+												</h4>
+											</div>
+										</div>
+
+									</div>
+									<div class="col-lg-4 new-relise-gd mt-lg-0 mt-0">
+										<div class="slider-info">
+											<div class="img-circle">
+												<a href="movies.html"><img src="assets/images/ba6.jpg" class="img-fluid"
+														alt="author image">
+													
+												</a>
+											</div>
+											<div class="message">
+												<p>Việt Nam</p>
+												<a class="author-book-title" href="movies.html">Cô Gái Từ Quá Khứ</a>
+												<h4> <span class="post"><span class="fa fa-clock-o"> </span> 2 Hr 4min
+
+													</span>
+
+													<span class="post fa fa-heart text-right"></span>
+												</h4>
+											</div>
+										</div>
+
+									</div>
+									<div class="col-lg-4 new-relise-gd mt-lg-0 mt-0">
+										<div class="slider-info">
+											<div class="img-circle">
+												<a href="movies.html"><img src="assets/images/ba2.jpg" class="img-fluid"
+														alt="author image">
+												
+												</a>
+											</div>
+											<div class="message">
+												<p>Việt Nam</p>
+												<a class="author-book-title" href="movies.html">Mười: Lời Nguyền Trở Lại</a>
+												<h4> <span class="post"><span class="fa fa-clock-o"> </span> 2 Hr 4min
+
+													</span>
+
+													<span class="post fa fa-heart text-right"></span>
+												</h4>
+											</div>
+										</div>
+
+									</div>
+									<div class="col-lg-4 new-relise-gd mt-lg-0 mt-0">
+										<div class="slider-info">
+											<div class="img-circle">
+												<a href="movies.html"><img src="assets/images/ba3.jpg" class="img-fluid"
+														alt="author image">
+													
+												</a>
+											</div>
+											<div class="message">
+												<p>Mỹ</p>
+												<a class="author-book-title" href="movies.html">Doctor Strange In The Multiverse Of Madness? </a>
+												<h4> <span class="post"><span class="fa fa-clock-o"> </span> 2 Hr 4min
+
+													</span>
+
+													<span class="post fa fa-heart text-right"></span>
+												</h4>
+											</div>
+										</div>
+
+									</div>
+									<div class="col-lg-4 new-relise-gd mt-lg-0 mt-0">
+										<div class="slider-info">
+											<div class="img-circle">
+												<a href="movies.html"><img src="assets/images/ba4.jpg" class="img-fluid"
+														alt="author image">
+													
+												</a>
+											</div>
+											<div class="message">
+												<p>Việt Nam</p>
+												<a class="author-book-title" href="movies.html">Em Và Trịnh</a>
+												<h4> <span class="post"><span class="fa fa-clock-o"> </span> 2 Hr 4min
+
+													</span>
+
+													<span class="post fa fa-heart text-right"></span>
+												</h4>
+											</div>
+										</div>
+
+									</div>
+									<div class="col-lg-4 new-relise-gd mt-lg-0 mt-0">
+										<div class="slider-info">
+											<div class="img-circle">
+												<a href="movies.html"><img src="assets/images/ba5.jpg" class="img-fluid"
+														alt="author image">
+													
+												</a>
+											</div>
+											<div class="message">
+												<p>Mỹ</p>
+												<a class="author-book-title" href="movies.html">Minions: Sự Trỗi Dậy Của Gru</a>
+												<h4> <span class="post"><span class="fa fa-clock-o"> </span> 2 Hr 4min
+
+													</span>
+
+													<span class="post fa fa-heart text-right"></span>
+												</h4>
+											</div>
+										</div>
+
+									
+							
+	</section>
+	<!--grids-sec2-->
+	<!-- footer-66 -->
+	<footer class="w3l-footer">
+		<section class="footer-inner-main">
+			<div class="footer-hny-grids py-5">
+				<div class="container py-lg-4">
+					<div class="text-txt">
+						<div class="right-side">
+							<div class="row footer-about">
+								<div class="col-md-3 col-6 footer-img mb-lg-0 mb-4">
+									<a href="movies.html"><img class="img-fluid" src="assets/images/banner1.jpg"
+											alt=""></a>
+								</div>
+								<div class="col-md-3 col-6 footer-img mb-lg-0 mb-4">
+									<a href="movies.html"><img class="img-fluid" src="assets/images/ba7.jpg"
+											alt=""></a>
+								</div>
+								<div class="col-md-3 col-6 footer-img mb-lg-0 mb-4">
+									<a href="movies.html"><img class="img-fluid" src="assets/images/banner3.jpg"
+											alt=""></a>
+								</div>
+								<div class="col-md-3 col-6 footer-img mb-lg-0 mb-4">
+									<a href="movies.html"><img class="img-fluid" src="assets/images/banner4.jpg"
+											alt=""></a>
+								</div>
+							</div>
+							<div class="row footer-links">
+
+
+								<div class="col-md-3 col-sm-6 sub-two-right mt-5">
+									<h6>Movies</h6>
+									<ul>
+										<li><a href="#">Movies</a></li>
+										<li><a href="#">Videos</a></li>
+										<li><a href="#">English Movies</a></li>
+										<li><a href="#">Tailor</a></li>
+										<li><a href="#">Upcoming Movies</a></li>
+										<li><a href="Contact_Us.html">Contact Us</a></li>
+									</ul>
+								</div>
+								<div class="col-md-3 col-sm-6 sub-two-right mt-5">
+									<h6>Information</h6>
+									<ul>
+										<li><a href="index.html">Home</a> </li>
+										<li><a href="about.html">About</a> </li>
+										<li><a href="#">Tv Series</a> </li>
+										<li><a href="#">Blogs</a> </li>
+										<li><a href="sign_in.html">Login</a></li>
+										<li><a href="Contact_Us.html">Contact</a></li>
+									</ul>
+								</div>
+								<div class="col-md-3 col-sm-6 sub-two-right mt-5">
+									<h6>Locations</h6>
+									<ul>
+										<li><a href="movies.html">Asia</a></li>
+										<li><a href="movies.html">France</a></li>
+										<li><a href="movies.html">Taiwan</a></li>
+										<li><a href="movies.html">United States</a></li>
+										<li><a href="movies.html">Korea</a></li>
+										<li><a href="movies.html">United Kingdom</a></li>
+									</ul>
+								</div>
+								<div class="col-md-3 col-sm-6 sub-two-right mt-5">
+									<h6>Newsletter</h6>
+									<form action="#" class="subscribe mb-3" method="post">
+										<input type="email" name="email" placeholder="Your Email Address" required="">
+										<button><span class="fa fa-envelope-o"></span></button>
+									</form>
+									<p>Enter your email and receive the latest news, updates and special offers from us.
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			</div>
+			<div class="below-section">
+				<div class="container">
+					<div class="copyright-footer">
+						<div class="columns text-lg-left">
+							<p>&copy; 2022 MyShowz. All rights reserved</p>
+						</div>
+
+						<ul class="social text-lg-right">
+							<li><a href="#facebook"><span class="fa fa-facebook" aria-hidden="true"></span></a>
+							</li>
+							<li><a href="#linkedin"><span class="fa fa-linkedin" aria-hidden="true"></span></a>
+							</li>
+							<li><a href="#twitter"><span class="fa fa-twitter" aria-hidden="true"></span></a>
+							</li>
+							<li><a href="#google"><span class="fa fa-google-plus" aria-hidden="true"></span></a>
+							</li>
+
+						</ul>
+					</div>
+				</div>
+			</div>
+			<!-- move top -->
+			<button onclick="topFunction()" id="movetop" title="Go to top">
+				<span class="fa fa-arrow-up" aria-hidden="true"></span>
+			</button>
+			<script>
+				// When the user scrolls down 20px from the top of the document, show the button
+				window.onscroll = function () {
+					scrollFunction()
+				};
+
+				function scrollFunction() {
+					if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+						document.getElementById("movetop").style.display = "block";
+					} else {
+						document.getElementById("movetop").style.display = "none";
+					}
+				}
+
+				// When the user clicks on the button, scroll to the top of the document
+				function topFunction() {
+					document.body.scrollTop = 0;
+					document.documentElement.scrollTop = 0;
+				}
+			</script>
+			<!-- /move top -->
+
+		</section>
+	</footer>
+</body>
+
+</html>
+<script src="/assets/js/jquery-3.3.1.min.js"></script>
+<!--/theme-change-->
+<script src="/assets/js/theme-change.js"></script>
+<script src="/assets/js/owl.carousel.js"></script>
+<script>
+	$(document).ready(function () {
+		$('.owl-four').owlCarousel({
+			loop: true,
+			margin: 20,
+			nav: false,
+			responsiveClass: true,
+			autoplay: false,
+			autoplayTimeout: 5000,
+			autoplaySpeed: 1000,
+			autoplayHoverPause: false,
+			responsive: {
+				0: {
+					items: 1,
+					nav: false
+				},
+				480: {
+					items: 2,
+					nav: true
+				},
+				667: {
+					items: 2,
+					nav: true
+				},
+				1000: {
+					items: 2,
+					nav: true
+				}
+			}
+		})
+	})
+</script>
+<script>
+	$(document).ready(function () {
+		$('.owl-two').owlCarousel({
+			loop: true,
+			margin: 40,
+			nav: false,
+			responsiveClass: true,
+			autoplay: true,
+			autoplayTimeout: 5000,
+			autoplaySpeed: 1000,
+			autoplayHoverPause: false,
+			responsive: {
+				0: {
+					items: 1,
+					nav: false
+				},
+				480: {
+					items: 2,
+					nav: true
+				},
+				667: {
+					items: 2,
+					margin: 20,
+					nav: true
+				},
+				1000: {
+					items: 3,
+					nav: true
+				}
+			}
+		})
+	})
+</script>
+<!-- script for owlcarousel -->
+<!-- disable body scroll which navbar is in active -->
+<script>
+	$(function () {
+		$('.navbar-toggler').click(function () {
+			$('body').toggleClass('noscroll');
+		})
+	});
+</script>
+<!-- disable body scroll which navbar is in active -->
+
+<!--/MENU-JS-->
+<script>
+	$(window).on("scroll", function () {
+		var scroll = $(window).scrollTop();
+
+		if (scroll >= 80) {
+			$("#site-header").addClass("nav-fixed");
+		} else {
+			$("#site-header").removeClass("nav-fixed");
+		}
+	});
+
+	//Main navigation Active Class Add Remove
+	$(".navbar-toggler").on("click", function () {
+		$("header").toggleClass("active");
+	});
+	$(document).on("ready", function () {
+		if ($(window).width() > 991) {
+			$("header").removeClass("active");
+		}
+		$(window).on("resize", function () {
+			if ($(window).width() > 991) {
+				$("header").removeClass("active");
+			}
+		});
+	});
+</script>
+<script src="assets/js/easyResponsiveTabs.js"></script>
+<script type="text/javascript">
+	$(document).ready(function () {
+		//Horizontal Tab
+		$('#parentHorizontalTab').easyResponsiveTabs({
+			type: 'default', //Types: default, vertical, accordion
+			width: 'auto', //auto or any width like 600px
+			fit: true, // 100% fit in a container
+			tabidentify: 'hor_1', // The tab groups identifier
+			activate: function (event) { // Callback function if tab is switched
+				var $tab = $(this);
+				var $info = $('#nested-tabInfo');
+				var $name = $('span', $info);
+				$name.text($tab.text());
+				$info.show();
+			}
+		});
+	});
+</script>
+
+<script src="/assets/js/bootstrap.min.js"></script>
