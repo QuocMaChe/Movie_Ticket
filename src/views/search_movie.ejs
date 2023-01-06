@@ -134,7 +134,7 @@
 				<div class="headerhny-title">
 					<div class="w3l-title-grids">
 						<div class="headerhny-left">
-							<h3 class="hny-title">PHIM ĐANG CHIẾU</h3>
+							<h3 class="hny-title">PHIM TÌM KIẾM</h3>
 						</div>
 						<div class="headerhny-right text-lg-right">
 							<h4><a class="show-title" href="/movies">Show all</a></h4>
@@ -168,51 +168,7 @@
 				</div>
 			</div>
 		</div>
-	<section class="w3l-albums py-5" id="projects">
-		<div class="container py-lg-4">
-			<div class="row">
-				<div class="col-lg-12 mx-auto">
-					<!--Horizontal Tab-->
-					<div id="parentHorizontalTab">
-						<ul class="resp-tabs-list hor_1">
-							<li>Tất cả</li>
-							<div class="clear"></div>
-						</ul>
-						<div class="resp-tabs-container hor_1">
-							<div class="albums-content">
-								<div class="row">
-									<%for(let i=0; i<dataMovies.length; i++){ %>
-										<div class="col-lg-4 new-relise-gd mt-lg-0 mt-0">
-											<div class="slider-info">
-												<div class="img-circle">
-													<a href="/movies_detail/id/<%=dataMovies[i].ID%>">
-
-														<img src="<%=dataMovies[i].IMGPATH%>" class="img-fluid"
-															alt="author image">
-														
-													</a>
-												</div>
-												<div class="message">
-													<p><%=dataMovies[i].AUTHOR%></p>
-													<a class="author-book-title" href="/movies_detail/id/<%=dataMovies[i].ID%>"><%=dataMovies[i].TEN%></a>
-													<h4> <span class="post"><span class="fa fa-clock-o"> </span> <%=dataMovies[i].THOILUONG%>
-
-														</span>
-
-														<span class="post fa fa-heart text-right"></span>
-													</h4>
-												</div>
-											</div>
-
-										</div>
-									<% } %>
-									
-									
-									
-									
-									
-	</section>
-	<!--grids-sec2-->
+    </section>
 	<!-- footer-66 -->
 	<footer class="w3l-footer">
 		<section class="footer-inner-main">

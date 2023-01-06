@@ -56,7 +56,7 @@
 						<!-- search popup -->
 						<div id="search" class="pop-overlay">
 							<div class="popup">
-								<form action="/search" method="post" class="search-box">
+								<form action="#" method="post" class="search-box">
 									<input type="search" placeholder="Search your Keyword" name="search"
 										required="required" autofocus="">
 									<button type="submit" class="btn"><span class="fa fa-search"
@@ -124,284 +124,40 @@
 			</div>
 		</nav>
 	</header>
-	<!-- main-slider -->
-	<section class="w3l-main-slider position-relative" id="home">
-		<div class="companies20-content">
-			<div class="owl-one owl-carousel owl-theme">
-				<div class="item">
-					<li>
-						<div class="slider-info banner-view bg bg2">
-							<div class="banner-info">
-								<h3>Phim đang chiếu</h3>
-								<p><span class="over-para">
-									Thành công ngoài mong đợi trong “canh bạc” mạo hiểm mang tên Avatar chính là động lực để James Cameron tự tin với ý tưởng thực hiện Avatar: The Way Of Water. 
-
-									</span></p>
-								<a href="#small-dialog1" class="popup-with-zoom-anim play-view1">
-									<span class="video-play-icon">
-										<span class="fa fa-play"></span>
-									</span>
-									<h6>Xem Trailer</h6>
-								</a>
-								<div id="small-dialog1" class="zoom-anim-dialog mfp-hide">
-									<iframe width="420" height="315" src="https://www.youtube.com/embed/o5F8MOz_IDw" frameborder="0" allowfullscreen></iframe>
-								</div>
-							</div>
-						</div>
-					</li>
-				</div>
-				<div class="item">
-					<li>
-						<div class="slider-info  banner-view banner-top1 bg bg2">
-							<div class="banner-info">
-								<h3>Phim sắp chiếu</h3>
-								<p><span class="over-para">
-									Lấy bối cảnh Sài Gòn 1998, phim là tiền truyện của Hai Phượng kể về hành trình “hắc hóa” của nữ giang hồ Thanh Sói. 
-
-									</span></p>
-								<a href="#small-dialog2" class="popup-with-zoom-anim play-view1">
-									<span class="video-play-icon">
-										<span class="fa fa-play"></span>
-									</span>
-									<h6>Xem Trailer</h6>
-								</a>
-								<div id="small-dialog2" class="zoom-anim-dialog mfp-hide">
-									<iframe width="420" height="315" src="https://www.youtube.com/embed/4-C5mC0uSyE" frameborder="0" allowfullscreen></iframe>
-								</div>
-							</div>
-						</div>
-					</li>
-				</div>
-				<div class="item">
-					<li>
-						<div class="slider-info banner-view banner-top2 bg bg2">
-							<div class="banner-info">
-								<h3>Phim đang chiếu</h3>
-								<p><span class="over-para">
-									Hạnh Phúc Máu kể về cuộc đời của Hà Phương (NSND Kim Xuân) và câu chuyện gia tộc Vương Đình với một đức tin lạ vận hành niềm tin, sự thịnh vượng của gia tộc. 
-
-									</span></p>
-								<a href="#small-dialog3" class="popup-with-zoom-anim play-view1">
-									<span class="video-play-icon">
-										<span class="fa fa-play"></span>
-									</span>
-									<h6>Xem Trailer</h6>
-								</a>
-								<div id="small-dialog3" class="zoom-anim-dialog mfp-hide">
-									<iframe width="420" height="315" src="https://www.youtube.com/embed/_VQqMUKMBKQ" frameborder="0" allowfullscreen></iframe>
-								</div>
-							</div>
-						</div>
-					</li>
-				</div>
-				<div class="item">
-					<li>
-						<div class="slider-info banner-view banner-top3 bg bg2">
-							<div class="banner-info">
-								<h3>Phim sắp chiếu</h3>
-								<p> <span class="over-para">
-									Phiên bản Next Level của thứ bùa ngãi tâm linh từng rúng động một thời tung teaser poster đầy mùi liêu trai, ma mị với hình ảnh nhân ngư đầy bí ẩn.</span></p>
-								<a href="#small-dialog4" class="popup-with-zoom-anim play-view1">
-									<span class="video-play-icon">
-										<span class="fa fa-play"></span>
-									</span>
-									<h6>Xem Trailer</h6>
-								</a>
-								<div id="small-dialog4" class="zoom-anim-dialog mfp-hide">
-									<iframe width="420" height="315" src="https://www.youtube.com/embed/U76D0Cr10IY" frameborder="0" allowfullscreen></iframe>
-								</div>
-							</div>
-						</div>
-					</li>
-				</div>
-				
-			</div>
-		</div>
-	</section>
-	<!-- main-slider -->
-	<!--grids-sec1-->
-	<section class="w3l-grids">
-		<div class="grids-main py-5">
-			<div class="container py-lg-3">
-				<div class="headerhny-title">
-					<div class="w3l-title-grids">
-						<div class="headerhny-left">
-							<h3 class="hny-title">Popular Movies</h3>
-						</div>
-						
-					</div>
-				</div>
-				<div class="w3l-populohny-grids">
-					<% for(let i=0; i<dataMovies.length; i++){ %>
-						<div class="item vhny-grid">
-                            <div class="box16">
-                                <a href="/movies">
-                                    <figure>
-                                        <img class="img-fluid" src="<%=dataMovies[i].IMGPATH%>" alt="">
-                                    </figure>
-                                    <div class="box-content">
-                                        <h3 class="title"><%=dataMovies[i].TEN%></h3>
-                                        <h4> <span class="post"><span class="fa fa-clock-o"> </span> <%=dataMovies[i].THOILUONG%>
-
-                                            </span>
-
-                                            <span class="post fa fa-heart text-right"></span>
-                                        </h4>
-                                    </div>
-                                    <span class="video-play-icon">
-                                        <span class="fa fa-play"></span>
-                                </a>
-                            </div>
-                        </div>
-					<% } %>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!--//grids-sec1-->
-	<!--
-	<section class="w3l-grids">
-		<div class="grids-main py-5">
-			<div class="container py-lg-3">
-				<div class="headerhny-title">
-					<div class="w3l-title-grids">
-						<div class="headerhny-left">
-							<h3 class="hny-title">New Releases</h3>
-						</div>
-						
-					</div>
-				</div>
-				<div class="owl-three owl-carousel owl-theme">
-					
-					<div class="item vhny-grid">
-						<div class="box16 mb-0">
-							<a href="movies.html">
-								<figure>
-									<img class="img-fluid" src="assets/images/po4.jpg" alt="">
-								</figure>
-								<div class="box-content">
-
-									<h4> <span class="post"><span class="fa fa-clock-o"> </span> 2 Hr 4min
-
-										</span>
-
-										<span class="post fa fa-heart text-right"></span>
-									</h4>
-								</div>
-								
-							</a>
-						</div>
-						<h3> <a class="title-gd" href="movies.html">Âm Lượng Hủy Diệt</a></h3>
-						<p>Thể loại: Hành Động, Hồi Hộp</p>
-						<br>
-						<div class="button-center text-center mt-4">
-							<a href="ticket-booking" class="btn watch-button">Đặt vé</a>
-						</div>
-					</div>
-					<div class="item vhny-grid">
-						<div class="box16 mb-0">
-							<a href="movies.html">
-								<figure>
-									<img class="img-fluid" src="assets/images/po5.jpg" alt="">
-								</figure>
-								<div class="box-content">
-
-									<h4> <span class="post"><span class="fa fa-clock-o"> </span> 2 Hr 4min
-
-										</span>
-
-										<span class="post fa fa-heart text-right"></span>
-									</h4>
-								</div>
-								
-							</a>
-						</div>
-						<h3> <a class="title-gd" href="movies.html">Cuộc Diễu Hành Thầm Lặng</a></h3>
-						<p>Thể loại: Hồi Hộp</p>
-						<div class="button-center text-center mt-4">
-							<a href="ticket-booking.html" class="btn watch-button">Đặt vé</a>
-						</div>
-					</div>
-					<div class="item vhny-grid">
-						<div class="box16 mb-0">
-							<a href="movies.html">
-								<figure>
-									<img class="img-fluid" src="assets/images/a.jpg" alt="">
-								</figure>
-								<div class="box-content">
-
-									<h4> <span class="post"><span class="fa fa-clock-o"> </span> 2 Hr 4min
-
-										</span>
-
-										<span class="post fa fa-heart text-right"></span>
-									</h4>
-								</div>
-								
-							</a>
-						</div>
-						<h3> <a class="title-gd" href="movies.html">Jailangkung: Búp Bê Gọi Hồn</a></h3>
-						<p>Thể loại: Bí Ẩn, Kinh Dị</p>
-						<div class="button-center text-center mt-4">
-							<a href="ticket-booking.html" class="btn watch-button">Đặt vé</a>
-						</div>
-
-					</div>
-					<div class="item vhny-grid">
-						<div class="box16 mb-0">
-							<a href="movies.html">
-								<figure>
-									<img class="img-fluid" src="assets/images/po.jpg" alt="">
-								</figure>
-								<div class="box-content">
-
-									<h4> <span class="post"><span class="fa fa-clock-o"> </span> 2 Hr 4min
-
-										</span>
-
-										<span class="post fa fa-heart text-right"></span>
-									</h4>
-								</div>
-								
-							</a>
-						</div>
-						<h3> <a class="title-gd" href="movies.html">Hung Thủ Vô Hình</a></h3>
-						<p>Thể loại: Tâm Lý, Tội Phạm</p>
-						<div class="button-center text-center mt-4">
-							<a href="ticket-booking.html" class="btn watch-button">Đặt vé</a>
-						</div>
-					</div>
-					<div class="item vhny-grid">
-						<div class="box16 mb-0">
-							<a href="movies.html">
-								<figure>
-									<img class="img-fluid" src="assets/images/po3.jpg" alt="">
-								</figure>
-								<div class="box-content">
-
-									<h4> <span class="post"><span class="fa fa-clock-o"> </span> 2 Hr 4min
-
-										</span>
-
-										<span class="post fa fa-heart text-right"></span>
-									</h4>
-								</div>
-								
-							</a>
-						</div>
-						<h3> <a class="title-gd" href="https://www.youtube.com/embed/_VQqMUKMBKQ">Tro Tàn Rực Rỡ</a></h3>
-						<p>Thể loại: Tâm Lý, Tình Cảm</p>
-						<div class="button-center text-center mt-4">
-							<a href="ticket-booking.html" class="btn watch-button">Đặt vé</a>
-						</div>
-					</div>
-				</div>
-			</div>
-
-		</div>
-	</section>-->
-	<!--grids-sec2-->
-	<!--mid-slider -->
+	
+    <section>
+        <div style="
+        text-align: center;
+        margin-top: 50px;
+        ">
+            <div class="modal-body" id="dynamic-content" style="text-align: center;">
+                <img src="<%=dataMovie[0].IMGPATH%>" class="img-fluid modalimg" alt="" height="600" width="300"/>
+                <p>
+                    <h3>Ngày khởi chiếu&nbsp;: <%=dataMovie[0].NGAYKC%> </h3>
+                    <h3>Đạo diễn&nbsp;: <%=dataMovie[0].AUTHOR%> </h3>
+                </p>
+                <h4>Nội dung phim</h4>
+                <p>
+                    <%=dataMovie[0].MOTA%>
+                </p>
+                <h4>Diễn viên</h4>
+                <p>
+                    <%=dataMovie[0].ACTOR%>
+    
+                </p>
+            </div>
+            <div style="text-align: center;">
+                <form action="/ticket-booking" method="post">
+                    <input type="hidden" value="<%=dataMovie[0].MA%>">
+                    <button class="btn btn-success">Đặt vé</button>
+                </form>
+                <!--<form action="#" method="post">
+                    <input type="hidden" value="<%=dataMovie[0].MA%>">
+                    <button type="button" class="btn btn-success">Đặt vé</button>
+                </form>-->
+            </div>
+        </div>   
+    </section>
 	
 	<!-- footer-66 -->
 	<footer class="w3l-footer">

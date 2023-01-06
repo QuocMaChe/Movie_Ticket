@@ -5,34 +5,54 @@ import { response } from "express";
 //User============================================================================================================================================================================================
 let getHomepage = async (req, res) => {
     try{
-        //let data_movies=[];
+        let data_movies=[];
         await pool.connect();
-        //let movies= await pool.request().query(`select * from PHIM `);
-        //data_movies=movies.recordset;
+        let movies= await pool.request().query(`select * from PHIM`);
+        data_movies=movies.recordset;
+        
         return res.render('index.ejs',{
-            dataUser: req.session.user
-            //dataMovies: data_movies
+            dataUser: req.session.user,
+            dataMovies: data_movies
         });
     }
     catch(err){
+        console.log('check lỗi');
         return res.redirect('/');
     }
 }
 let getMoviespage = async (req, res) => {
     try{
-        //let data_movies=[];
+        let data_movies=[];
         await pool.connect();
-        //let movies= await pool.request().query(`select * from PHIM `);
-        //data_movies=movies.recordset;
+        let movies= await pool.request().query(`select * from PHIM `);
+        data_movies=movies.recordset;
         return res.render('movies.ejs',{
-            dataUser: req.session.user
-            //dataMovies: data_movies
+            dataUser: req.session.user,
+            dataMovies: data_movies
         });
     }
     catch(err){
         return res.redirect('/');
     }
 }
+
+let processMoviesDetailpage = async (req, res) => {
+    try{
+        let data_movie=[];
+        let id=req.params.id
+        await pool.connect();
+        let movie= await pool.request().query(`select * from PHIM where ID='${id}'`);
+        data_movie=movie.recordset;
+        return res.render('movies_detail.ejs',{
+            dataUser: req.session.user,
+            dataMovie: data_movie
+        });
+    }
+    catch(err){
+        return res.redirect('/');
+    }
+}
+
 let getContactUspage = async (req, res) => {
     try{
         
@@ -52,7 +72,9 @@ let getSignInpage = async (req, res) => {
 }
 let getTicketBookingpage = async (req, res) => {
     try{
-      
+        if(!req.session.user){
+            return res.redirect('/sign_in');
+        }
         await pool.connect();
        
         return res.render('ticket-booking.ejs',{
@@ -100,6 +122,22 @@ let processSignUp = async (req, res) => {
         return res.render('/sign_in');
     }
 }
+let processSearch = async (req, res) => {
+    try{
+        let search = req.body.search;
+        let data_movies=[]
+        await pool.connect();
+        let movies = await pool.request().query(`SELECT * FROM PHIM WHERE TEN LIKE '%${search}%'`);
+        data_movies=movies.recordset;
+        return res.render('search_movie.ejs',{
+            dataMovies: data_movies,
+            dataUser: req.session.user
+        });
+    }
+    catch(err){
+        return res.render('/sign_in');
+    }
+}
 module.exports = {
     getHomepage,
     getContactUspage,
@@ -108,5 +146,7 @@ module.exports = {
     processSignUp,
     processSignIn,
     getTicketBookingpage,
-    processSignOut
+    processSignOut,
+    processMoviesDetailpage,
+    processSearch
 }
