@@ -40,6 +40,18 @@ TABLE VE(
 
 go
 
+CREATE
+--ALTER
+TABLE PHANHOI(
+	ID INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
+	FirstName NVARCHAR(100),
+	LastName NVARCHAR(100),
+	EMAIL CHAR(100),
+	SDT CHAR(13),
+	MESS NVARCHAR(100)
+)
+
+go
 
 --insert into PHIM values('Avatar: The Way Of Water','10/12/2022','James Cameroon','Sam Worthington, Zoe Saldana, Kate Winslet, Sigourney Weaver, Stephen Lang',N'Những trích đoạn đầu tiên hé lộ diễn biến cuộc chiến tiếp theo','1 Hr 40min',N'Hành động, Khoa học viễn tưởng','/assets/images/banner1_.jpg','https://www.youtube.com/embed/o5F8MOz_IDw');
 --insert into PHIM values('Big Trip 2: Special Delivery','17/12/2022','Vasiliy Rovenskiy','Daniel Medvedev, Bernard Jacobsen, Stephen Thomas Ochsner',N'Đã một năm kể từ khi chú gấu Mic-Mic và chú thỏ Oscar trở lại sau cuộc phiêu lưu kỳ thú của họ','2 Hr 10min',N'Phiêu lưu, Hoạt hình','assets/images/banner2_.jpg','https://www.youtube.com/embed/o5F8MOz_IDw')
@@ -50,5 +62,4 @@ go
 
 
 
-SELECT * FROM PHIM
-WHERE TEN LIKE "%one%"
+select * from PHANHOI

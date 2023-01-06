@@ -78,7 +78,7 @@
             <span> <%=dataUser[0].TEN%> </span>
 
             <form action="/process_sign_out">
-              <button>Đăng xuất</button>
+              <button class="btn btn-success">Đăng xuất</button>
             </form>
             <% } %>
           </div>
@@ -108,7 +108,12 @@
         using the form below.
       </p>
 
-      <form name="contact-us-form" action="#" onsubmit="return validateForm()">
+      <form
+        name="contact-us-form"
+        action="/process_contact"
+        onsubmit="return validateForm()"
+        method="post"
+      >
         <div class="row100" id="fname-row100">
           <div class="col">
             <div class="inputBox" id="fname-inputBox">
@@ -140,7 +145,7 @@
           </div>
           <div class="col">
             <div class="inputBox" id="tel-inputBox">
-              <input type="tel" name="m-num" onclick="triggerAnim('tel')" />
+              <input type="tel" name="num" onclick="triggerAnim('tel')" />
               <span class="text">Mobile Number</span>
               <span class="line" id="tel-line"></span>
             </div>

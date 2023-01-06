@@ -111,7 +111,7 @@ let processSignOut = async (req, res) => {
 }
 let processSignUp = async (req, res) => {
     try{
-        let name = req.body.email;
+        let name = req.body.name;
         let email = req.body.email;
         let password = req.body.password;
         await pool.connect();
@@ -138,6 +138,21 @@ let processSearch = async (req, res) => {
         return res.render('/sign_in');
     }
 }
+let processContact = async (req, res) => {
+    try{
+        let firstname = req.body.fname;
+        let lastname = req.body.lname;
+        let mail = req.body.email;
+        let sdt = req.body.num;
+        let message = req.body.msg;
+        await pool.connect();
+        await pool.request().query(`insert into PHANHOI values(N'${firstname}',N'${lastname}','${mail}','${sdt}','${message}')`);
+        return res.redirect('/Contact_Us');
+    }
+    catch(err){
+        return res.render('//Contact_Us');
+    }
+}
 module.exports = {
     getHomepage,
     getContactUspage,
@@ -148,5 +163,6 @@ module.exports = {
     getTicketBookingpage,
     processSignOut,
     processMoviesDetailpage,
-    processSearch
+    processSearch,
+    processContact
 }

@@ -13,6 +13,7 @@ const initWebRoute = (app) => {
     router.get('/process_sign_out', homeController.processSignOut);
     router.get('/movies_detail/id/:id', homeController.processMoviesDetailpage);
     router.post('/search', homeController.processSearch);
+    router.post('/process_contact', homeController.processContact);
     return app.use('/', router);
 }
 //
