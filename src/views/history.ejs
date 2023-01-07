@@ -84,36 +84,41 @@
         </div>
       </nav>
     </header>
-    <br><br><br>
+    <br /><br /><br />
 
     <div class="container">
-        <form action="/seat_selection" method="post">
-            <h2>Chọn lịch xem phim</h2>
-            <br>
-            <p>Chọn ngày </p>
-            <select id="listDate" class="form-control form-control-lg" name="startDate" >
-                <% for(let i=0; i<dataWeek.length; i++){ %>
-                    <option value="Ngày <%=dataWeek[i]%> - <%=dataWeekday[i]%>">
-                      <span>Ngày <%=dataWeek[i]%> - <%=dataWeekday[i]%></span>
-                    </option>
-                <% } %>
-            </select>
-            <br>
-            <p>Chọn giờ </p>
-            <select id="listTimes" class="form-control form-control-lg" name="startTime">
-              <% for(let i=0; i<dataHours.length; i++){ %>
-                <option value="<%=dataHours[i]%>">
-                  <span><%=dataHours[i]%></span>
-                </option>
-              <% } %>
-            </select>
-            <input type="hidden" value="<%=idPhim%>" name="id">
-            <br><br>
-            <input type="submit" class="next-step" value="Continue Booking">
-        </form>
+      <h2>Lịch Sử Mua Vé</h2>
+      <br />
+      <div>
+        <table style="width: 100%" border="2px">
+          <tr>
+            <th>
+                <span align="center">Tên Phim</span>
+            </th>
+            <th align="center">Ảnh</th>
+            <th align="center">Giờ Chiếu</th>
+            <th align="center">Ghế</th>
+            <th align="center">Giờ Mua</th>
+            <th align="center">Mã QR</th>
+          </tr>
+          <% for(let i=0; i<dataTickets.length; i++){ %>
+            <tr>
+                    <td align="center"><%=dataMovies[i].TEN%></td>
+                    <td align="center">
+                        <img src="<%=dataMovies[i].IMGPATH%>" alt="" height="150px" width="150px" style="margin-top:5px ;
+                        margin-bottom:5px">
+                    </td>
+                    <td align="center"><%=dataTickets[i].GIO%></td>
+                    <td align="center"><%=(dataChairs[i].COL+dataChairs[i].RO)%></td>
+                    <td align="center"><%=timePay%></td>
+                    <td align="center"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Superqr.svg/800px-Superqr.svg.png" height="150px" width="150px"/></td>
+            </tr>
+          <% } %>
+        </table>
+      </div>
+      <br />
     </div>
-    <br><br><br><br><br><br><br>
-    
+    <br /><br /><br /><br /><br /><br /><br />
   </body>
   <script>
     let prevId = "1";

@@ -12,8 +12,12 @@ const initWebRoute = (app) => {
     router.post('/process_sign_up', homeController.processSignUp);
     router.get('/process_sign_out', homeController.processSignOut);
     router.get('/movies_detail/id/:id', homeController.processMoviesDetailpage);
+    router.post('/seat_selection', homeController.getSeatSelectionPage);
     router.post('/search', homeController.processSearch);
     router.post('/process_contact', homeController.processContact);
+    router.post('/bill', homeController.getBillpage);
+    router.post('/paid', homeController.processPay);
+    router.get('/history', homeController.getTicketspage);
     return app.use('/', router);
 }
 //

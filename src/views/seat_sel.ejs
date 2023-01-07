@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chọn Chỗ Ngồi</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <style>
+      .screen-container {
+        perspective: 1000px;
+        margin: 40px 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      .screen {
+        background: rgb(71, 165, 209);
+        height: 70px;
+        width: 70%;
+        margin: 15px 0;
+        transform: rotateX(-45deg);
+        box-shadow: 0 3px 10px rgba(19, 120, 145, 0.7);
+      }
+      input.largerCheckbox {
+        width: 80px;
+        height: 80px;
+        cursor: pointer;
+      }
+    </style>
+	<link
+      href="https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,700"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <header id="site-header" class="w3l-header fixed-top">
+
+
+      <!--/nav-->
+      <nav class="navbar navbar-expand-lg navbar-light fill px-lg-0 py-0 px-3">
+        <div class="container">
+          <h1>
+            <a class="navbar-brand" href="/"
+              >
+            </a>
+          </h1>
+
+          <div
+            class="collapse navbar-collapse"
+            id="navbarSupportedContent"
+          ></div>
+        
+          <div class="mobile-position">
+            <nav class="navigation">
+              <div class="theme-switch-wrapper">
+              </div>
+            </nav>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <br /><br /><br />
+    <!-- end of navbar -->
+    <div class="container">
+      <h2 style="color: #df0e62;">Chọn Chỗ Ngồi</h2>
+      <div class="screen-container">
+        <h2 style="color: #df0e62;">Màn Hình</h2>
+        <div class="screen"></div>
+        <br /><br /><br />
+		
+      </div>
+	  <div class="checkbox-">
+		<form action="/bill" method="post">
+			<table style="width:100%">
+				<tr>
+						<th></th>
+						<th>1</th>
+						<th>2</th>
+						<th>3</th>
+						<th>4</th>
+						<th>5</th>
+						<th>6</th>
+						<th>7</th>
+						<th>8</th>
+	
+				</tr>
+				<tr>
+					<th>A</th>
+					<% for(let i=0; i<dataSeatA.length; i++){ %> 
+							<% if(dataSeated.includes(dataSeatA[i].ID)){ %>
+								<th><input type="checkbox" class="largerCheckbox" value="<%=dataSeatA[i].ID%>" checked disabled="true"">
+								</th>
+							<% }else{ %>
+								<th><input type="checkbox" class="largerCheckbox" name="seats" value="<%=dataSeatA[i].ID%>">
+								</th>
+							<% } %>
+					<% } %>
+
+				</tr>
+	
+				<tr>
+					<th>B</th>
+					<% for(let i=0; i<dataSeatB.length; i++){ %> 
+						<% if(dataSeated.includes(dataSeatB[i].ID)){ %>
+							<th><input type="checkbox" class="largerCheckbox" value="<%=dataSeatB[i].ID%>" checked disabled="true"">
+							</th>
+						<% }else{ %>
+							<th><input type="checkbox" class="largerCheckbox" name="seats" value="<%=dataSeatB[i].ID%>">
+							</th>
+						<% } %>
+					<% } %>
+				</tr>
+	
+				<tr>
+					<th>C</th>
+					<% for(let i=0; i<dataSeatC.length; i++){ %> 
+						<% if(dataSeated.includes(dataSeatC[i].ID)){ %>
+							<th><input type="checkbox" class="largerCheckbox" value="<%=dataSeatC[i].ID%>" checked disabled="true"">
+							</th>
+						<% }else{ %>
+							<th><input type="checkbox" class="largerCheckbox" name="seats" value="<%=dataSeatC[i].ID%>">
+							</th>
+						<% } %>
+					<% } %>
+				</tr>
+				<tr>
+					<th>D</th>
+					<% for(let i=0; i<dataSeatD.length; i++){ %> 
+						<% if(dataSeated.includes(dataSeatD[i].ID)){ %>
+							<th><input type="checkbox" class="largerCheckbox" value="<%=dataSeatD[i].ID%>" checked disabled="true"">
+							</th>
+						<% }else{ %>
+							<th><input type="checkbox" class="largerCheckbox" name="seats" value="<%=dataSeatD[i].ID%>">
+							</th>
+						<% } %>
+					<% } %>
+	
+				</tr>
+				<tr>
+					<th>E</th>
+					<% for(let i=0; i<dataSeatE.length; i++){ %> 
+						<% if(dataSeated.includes(dataSeatE[i].ID)){ %>
+							<th><input type="checkbox" class="largerCheckbox" value="<%=dataSeatE[i].ID%>" checked disabled="true"">
+							</th>
+						<% }else{ %>
+							<th><input type="checkbox" class="largerCheckbox" name="seats" value="<%=dataSeatE[i].ID%>">
+							</th>
+						<% } %>
+					<% } %>
+				</tr>
+			</table>
+			<br>
+			<br>
+			<input type="hidden" name="id" id="" value="<%=idPhim%>">
+			<input type="hidden" name="day" id="" value="<%=day%>">
+			<input type="hidden" name="time" id="" value="<%=time%>">
+			<input type="submit" class="btn btn-outline-danger btn-block" value="Tiếp Tục"></input>
+		</form>
+	</div>
+    </div>
+  </body>
+
+  <script>
+    let prevId = "1";
+
+    window.onload = function () {
+      document.getElementById("screen-next-btn").disabled = true;
+    };
+
+    function timeFunction() {
+      document.getElementById("screen-next-btn").disabled = false;
+    }
+
+    function myFunction(id) {
+      document.getElementById(prevId).style.background = "rgb(243, 235, 235)";
+      document.getElementById(id).style.background = "#df0e62";
+      prevId = id;
+    }
+  </script>
+
+  <script src="https://npmcdn.com/flickity@2/dist/flickity.pkgd.js"></script>
+  <script
+    type="text/javascript"
+    src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"
+  ></script>
+  <script
+    type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"
+  ></script>
+  <script src="assets/js/theme-change.js"></script>
+
+  <script type="text/javascript" src="assets/js/ticket-booking.js"></script>
+</html>

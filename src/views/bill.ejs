@@ -29,6 +29,12 @@
       href="https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,700"
       rel="stylesheet"
     />
+
+    <style type="text/css">
+      th {
+        padding: 0px 20px 5px 0px;
+      }
+    </style>
   </head>
 
   <body>
@@ -84,36 +90,52 @@
         </div>
       </nav>
     </header>
-    <br><br><br>
+    <br /><br /><br />
 
     <div class="container">
-        <form action="/seat_selection" method="post">
-            <h2>Chọn lịch xem phim</h2>
-            <br>
-            <p>Chọn ngày </p>
-            <select id="listDate" class="form-control form-control-lg" name="startDate" >
-                <% for(let i=0; i<dataWeek.length; i++){ %>
-                    <option value="Ngày <%=dataWeek[i]%> - <%=dataWeekday[i]%>">
-                      <span>Ngày <%=dataWeek[i]%> - <%=dataWeekday[i]%></span>
-                    </option>
-                <% } %>
-            </select>
-            <br>
-            <p>Chọn giờ </p>
-            <select id="listTimes" class="form-control form-control-lg" name="startTime">
-              <% for(let i=0; i<dataHours.length; i++){ %>
-                <option value="<%=dataHours[i]%>">
-                  <span><%=dataHours[i]%></span>
-                </option>
-              <% } %>
-            </select>
-            <input type="hidden" value="<%=idPhim%>" name="id">
-            <br><br>
-            <input type="submit" class="next-step" value="Continue Booking">
-        </form>
+      <h2>Thanh toán hóa đơn</h2>
+      <br />
+      <form action="/paid" method="post">
+        <div style="display: flex">
+          <input type="hidden" name="id" id="" value="<%=dataMovies[0].ID%>" />
+          <input type="hidden" name="seats" id="" value="<%=seats%>" />
+          <input type="hidden" name="day" id="" value="<%=day%>" />
+          <input type="hidden" name="time" id="" value="<%=time%>" />
+          <table>
+            <tr>
+              <th><b>Tên Phim: </b></th>
+              <th><%=dataMovies[0].TEN%></th>
+            </tr>
+            <tr>
+              <th><b>Giờ Chiếu:</b></th>
+              <th><%=time%></th>
+            </tr>
+            <tr>
+              <th><b>Ngày Chiếu:</b></th>
+              <th><%=day%></th>
+            </tr>
+            <tr>
+              <th><b>Số Vé:</b></th>
+              <th><%=seats.length%></th>
+            </tr>
+            <tr>
+              <th><b>Tiền Vé Đơn:</b></th>
+              <th><%=dataMovies[0].TIEN%></th>
+            </tr>
+            <tr>
+              <th><b>Tổng:</b></th>
+              <th><%=(dataMovies[0].TIEN*2)%></th>
+            </tr>
+          </table>
+          <div style="margin-left: 50px">
+            <img src="<%=dataMovies[0].IMGPATH%>" alt="" />
+          </div>
+        </div>
+        <br />
+        <button class="btn btn-success">Thanh Toán</button>
+      </form>
     </div>
-    <br><br><br><br><br><br><br>
-    
+    <br /><br /><br /><br /><br /><br /><br />
   </body>
   <script>
     let prevId = "1";
