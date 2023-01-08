@@ -79,94 +79,94 @@
         <br /><br /><br />
 		
       </div>
-	  <div class="checkbox-">
-		<form action="/bill" method="post">
-			<table style="width:100%">
-				<tr>
-						<th></th>
-						<th>1</th>
-						<th>2</th>
-						<th>3</th>
-						<th>4</th>
-						<th>5</th>
-						<th>6</th>
-						<th>7</th>
-						<th>8</th>
-	
-				</tr>
-				<tr>
-					<th>A</th>
-					<% for(let i=0; i<dataSeatA.length; i++){ %> 
-							<% if(dataSeated.includes(dataSeatA[i].ID)){ %>
-								<th><input type="checkbox" class="largerCheckbox" value="<%=dataSeatA[i].ID%>" checked disabled="true"">
-								</th>
-							<% }else{ %>
-								<th><input type="checkbox" class="largerCheckbox" name="seats" value="<%=dataSeatA[i].ID%>">
-								</th>
-							<% } %>
-					<% } %>
+	    <div class="checkbox-">
+      <form action="/bill" method="post">
+        <table style="width:100%">
+          <tr>
+              <th></th>
+              <th>1</th>
+              <th>2</th>
+              <th>3</th>
+              <th>4</th>
+              <th>5</th>
+              <th>6</th>
+              <th>7</th>
+              <th>8</th>
+    
+          </tr>
+          <tr>
+            <th>A</th>
+            <% for(let i=0; i<dataSeatA.length; i++){ %> 
+                <% if(dataSeated.includes(dataSeatA[i].ID)){ %>
+                  <th><input type="checkbox" class="largerCheckbox" value="<%=dataSeatA[i].ID%>" checked disabled="true"">
+                  </th>
+                <% }else{ %>
+                  <th><input type="checkbox" class="largerCheckbox" name="seats" value="<%=dataSeatA[i].ID%>">
+                  </th>
+                <% } %>
+            <% } %>
 
-				</tr>
-	
-				<tr>
-					<th>B</th>
-					<% for(let i=0; i<dataSeatB.length; i++){ %> 
-						<% if(dataSeated.includes(dataSeatB[i].ID)){ %>
-							<th><input type="checkbox" class="largerCheckbox" value="<%=dataSeatB[i].ID%>" checked disabled="true"">
-							</th>
-						<% }else{ %>
-							<th><input type="checkbox" class="largerCheckbox" name="seats" value="<%=dataSeatB[i].ID%>">
-							</th>
-						<% } %>
-					<% } %>
-				</tr>
-	
-				<tr>
-					<th>C</th>
-					<% for(let i=0; i<dataSeatC.length; i++){ %> 
-						<% if(dataSeated.includes(dataSeatC[i].ID)){ %>
-							<th><input type="checkbox" class="largerCheckbox" value="<%=dataSeatC[i].ID%>" checked disabled="true"">
-							</th>
-						<% }else{ %>
-							<th><input type="checkbox" class="largerCheckbox" name="seats" value="<%=dataSeatC[i].ID%>">
-							</th>
-						<% } %>
-					<% } %>
-				</tr>
-				<tr>
-					<th>D</th>
-					<% for(let i=0; i<dataSeatD.length; i++){ %> 
-						<% if(dataSeated.includes(dataSeatD[i].ID)){ %>
-							<th><input type="checkbox" class="largerCheckbox" value="<%=dataSeatD[i].ID%>" checked disabled="true"">
-							</th>
-						<% }else{ %>
-							<th><input type="checkbox" class="largerCheckbox" name="seats" value="<%=dataSeatD[i].ID%>">
-							</th>
-						<% } %>
-					<% } %>
-	
-				</tr>
-				<tr>
-					<th>E</th>
-					<% for(let i=0; i<dataSeatE.length; i++){ %> 
-						<% if(dataSeated.includes(dataSeatE[i].ID)){ %>
-							<th><input type="checkbox" class="largerCheckbox" value="<%=dataSeatE[i].ID%>" checked disabled="true"">
-							</th>
-						<% }else{ %>
-							<th><input type="checkbox" class="largerCheckbox" name="seats" value="<%=dataSeatE[i].ID%>">
-							</th>
-						<% } %>
-					<% } %>
-				</tr>
-			</table>
-			<br>
-			<br>
-			<input type="hidden" name="id" id="" value="<%=idPhim%>">
-			<input type="hidden" name="day" id="" value="<%=day%>">
-			<input type="hidden" name="time" id="" value="<%=time%>">
-			<input type="submit" class="btn btn-outline-danger btn-block" value="Tiếp Tục"></input>
-		</form>
-	</div>
+          </tr>
+    
+          <tr>
+            <th>B</th>
+            <% for(let i=0; i<dataSeatB.length; i++){ %> 
+              <% if(dataSeated.includes(dataSeatB[i].ID)){ %>
+                <th><input type="checkbox" class="largerCheckbox" value="<%=dataSeatB[i].ID%>" checked disabled="true"">
+                </th>
+              <% }else{ %>
+                <th><input type="checkbox" class="largerCheckbox" name="seats" value="<%=dataSeatB[i].ID%>">
+                </th>
+              <% } %>
+            <% } %>
+          </tr>
+    
+          <tr>
+            <th>C</th>
+            <% for(let i=0; i<dataSeatC.length; i++){ %> 
+              <% if(dataSeated.includes(dataSeatC[i].ID)){ %>
+                <th><input type="checkbox" class="largerCheckbox" value="<%=dataSeatC[i].ID%>" checked disabled="true"">
+                </th>
+              <% }else{ %>
+                <th><input type="checkbox" class="largerCheckbox" name="seats" value="<%=dataSeatC[i].ID%>">
+                </th>
+              <% } %>
+            <% } %>
+          </tr>
+          <tr>
+            <th>D</th>
+            <% for(let i=0; i<dataSeatD.length; i++){ %> 
+              <% if(dataSeated.includes(dataSeatD[i].ID)){ %>
+                <th><input type="checkbox" class="largerCheckbox" value="<%=dataSeatD[i].ID%>" checked disabled="true"">
+                </th>
+              <% }else{ %>
+                <th><input type="checkbox" class="largerCheckbox" name="seats" value="<%=dataSeatD[i].ID%>">
+                </th>
+              <% } %>
+            <% } %>
+    
+          </tr>
+          <tr>
+            <th>E</th>
+            <% for(let i=0; i<dataSeatE.length; i++){ %> 
+              <% if(dataSeated.includes(dataSeatE[i].ID)){ %>
+                <th><input type="checkbox" class="largerCheckbox" value="<%=dataSeatE[i].ID%>" checked disabled="true"">
+                </th>
+              <% }else{ %>
+                <th><input type="checkbox" class="largerCheckbox" name="seats" value="<%=dataSeatE[i].ID%>">
+                </th>
+              <% } %>
+            <% } %>
+          </tr>
+        </table>
+        <br>
+        <br>
+        <input type="hidden" name="id" id="" value="<%=Schedule[0].ID%>">
+        <input type="hidden" name="day" id="" value="<%=day%>">
+        <input type="hidden" name="time" id="" value="<%=time%>">
+        <input type="submit" class="btn btn-outline-danger btn-block" value="Tiếp Tục"></input>
+      </form>
+	  </div>
     </div>
   </body>
 

@@ -132,47 +132,34 @@
 	<!--/movies -->
 	<!--grids-sec1-->
 	<!--grids-sec1-->
-	<section class="w3l-grids">
-		<div class="grids-main py-5">
-			<div class="container py-lg-4">
-				<div class="headerhny-title">
-					<div class="w3l-title-grids">
-						<div class="headerhny-left">
-							<h3 class="hny-title">PHIM TÌM KIẾM</h3>
-						</div>
-						<div class="headerhny-right text-lg-right">
-							<h4><a class="show-title" href="/movies">Show all</a></h4>
-						</div>
-					</div>
-				</div>
-				<div class="w3l-populohny-grids">
-					<% for(let i=0; i<dataMovies.length; i++){ %>
-						<%if (i==4){break;}%>
-						<div class="item vhny-grid">
-							<div class="box16 mb-0">
-								<figure>
-									<img class="img-fluid" src="<%=dataMovies[i].IMGPATH%>" alt="">
-								</figure>
-								<a href="/movies_detail/id/<%=dataMovies[i].ID%>" >
-									<div class="box-content">
-										<h3 class="title"><%=dataMovies[i].TEN%></h3>
-										<h4> <span class="post"><span class="fa fa-clock-o"> </span> <%=dataMovies[i].THOILUONG%>
-	
-											</span>
-	
-											<span class="post fa fa-heart text-right"></span>
-										</h4>
-									</div>
-								</a>
-							</div>
-						</div>
-					<% } %>
+	<section class="w3l-albums py-5" id="projects">
+		<div class="container py-lg-4">
+			<div class="row">
+				<div class="col-lg-12 mx-auto">
+					<!--Horizontal Tab-->
+					<div id="parentHorizontalTab">
+						<ul class="resp-tabs-list hor_1">
+							<li>Chọn phòng</li>
+							<div class="clear"></div>
+						</ul>
+						<div class="resp-tabs-container hor_1">
+							<div class="albums-content">
+								<div class="row">
+									<% for(let i=0; i<dataBranchs.length; i++){ %>
+                                        <div class="card branch-item" style="width:500px">
+                                            <img class="card-img-top img-branch"
+                                                 src="https://baokhanhhoa.vn/dataimages/202005/original/images5406671_bai_rap_phim_he_01.jpg"
+                                                 alt="Card image" style="width:100%">
+                                            <div class="card-body">
+                                                <h4 class="card-title"><%=dataBranchs[i].TEN%> </h4>
+                                                <p class="card-text"><%=dataBranchs[i].DIACHI%></p>
+                                                <a href="/rooms/id/<%=dataBranchs[i].ID%>/id_phim/<%=idPhim%>" class="btn btn-outline-danger btn-block">Chọn</a>
+                                            </div>
+                                        </div>
+                                    <% } %>
 					
-
-				</div>
-			</div>
-		</div>
-    </section>
+	</section>
+	<!--grids-sec2-->
 	<!-- footer-66 -->
 	<footer class="w3l-footer">
 		<section class="footer-inner-main">

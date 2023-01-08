@@ -73,7 +73,8 @@ let getSignInpage = async (req, res) => {
  
 let getTicketBookingpage = async (req, res) => {
     try{
-        let id=req.body.id;
+        let id_phim=req.params.id_phim;
+        let id_phong=req.params.id_phong;
         let days=[];
         let date=[];
         const weekday = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
@@ -88,16 +89,18 @@ let getTicketBookingpage = async (req, res) => {
         if(!req.session.user){
             return res.redirect('/sign_in');
         }
-       
+        
         return res.render('ticket-booking.ejs',{
             dataUser: req.session.user,
             dataWeek: days,
             dataWeekday:date,
             dataHours: hours,
-            idPhim: id
+            idPhim: id_phim,
+            idPhong: id_phong
         });
     }
     catch(err){
+        console.log(err);
         return res.redirect('/');
     }
 }
@@ -113,7 +116,10 @@ let processSignIn = async (req, res) => {
             req.session.user=data_user;
             return res.redirect('/');
         }else{
-            return res.render('/sign_in');
+            let error=1;
+            return res.render('sign_in.ejs',{
+                Error:error
+            });
         }
     }
     catch(err){
@@ -131,8 +137,18 @@ let processSignUp = async (req, res) => {
         let email = req.body.email;
         let password = req.body.password;
         await pool.connect();
-        await pool.request().query(`insert into KHACHHANG(TEN,EMAIL,PWD) values (N'${name}','${email}','${password}')`);
-        return res.redirect('/sign_in');
+        let data_users=[];
+        let users=await pool.request().query(`select * from KHACHHANG where EMAIL='${email}'`);
+        data_users=users.recordset;
+        if(data_users.length>=1){
+            let error=1;
+            return res.render('sign_in.ejs',{
+                Error:error
+            });
+        }else{
+            await pool.request().query(`insert into KHACHHANG(TEN,EMAIL,PWD) values (N'${name}','${email}','${password}')`);
+            return res.redirect('/sign_in');
+        }
     }
     catch(err){
         return res.render('/sign_in');
@@ -176,28 +192,29 @@ let getSeatSelectionPage = async (req, res) => {
             return res.redirect('/sign_in');
         }
         let id=req.body.id;
+        let id_phong=req.body.id_phong;
         let day=req.body.startDate;
         let time=req.body.startTime;
         await pool.connect();
 
         let seatA=[];
-        let listA = await pool.request().query(`SELECT * FROM GHE WHERE COL='A'`);
+        let listA = await pool.request().query(`SELECT * FROM GHE WHERE COL='A' AND ID_PHONG='${id_phong}'`);
         seatA=listA.recordset;
 
         let seatB=[];
-        let listB = await pool.request().query(`SELECT * FROM GHE WHERE COL='B'`);
+        let listB = await pool.request().query(`SELECT * FROM GHE WHERE COL='B' AND ID_PHONG='${id_phong}'`);
         seatB=listB.recordset;
 
         let seatC=[];
-        let listC = await pool.request().query(`SELECT * FROM GHE WHERE COL='C'`);
+        let listC = await pool.request().query(`SELECT * FROM GHE WHERE COL='C' AND ID_PHONG='${id_phong}'`);
         seatC=listC.recordset;
 
         let seatD=[];
-        let listD = await pool.request().query(`SELECT * FROM GHE WHERE COL='D'`);
+        let listD = await pool.request().query(`SELECT * FROM GHE WHERE COL='D' AND ID_PHONG='${id_phong}'`);
         seatD=listD.recordset;
 
         let seatE=[];
-        let listE = await pool.request().query(`SELECT * FROM GHE WHERE COL='E'`);
+        let listE = await pool.request().query(`SELECT * FROM GHE WHERE COL='E' AND ID_PHONG='${id_phong}'`);
         seatE=listE.recordset;
 
         let dataSeated=[];
@@ -206,19 +223,26 @@ let getSeatSelectionPage = async (req, res) => {
             dataSeated.push(seated.recordset[i].ID_GHE);
         }
 
+        await pool.request().query(` INSERT INTO LICH VALUES('${id}', '${id_phong}')`);
+
+        let schedule=[];
+        let scheme = await pool.request().query(`SELECT * FROM LICH WHERE ID_PHIM='${id}' and ID_PHONG='${id_phong}'`);
+        schedule=scheme.recordset;
+
         return res.render('seat_sel.ejs',{
             dataSeatA: seatA,
             dataSeatB: seatB,
             dataSeatC: seatC,
             dataSeatD: seatD,
             dataSeatE: seatE,
-            idPhim: id,
             day:day,
             time:time,
-            dataSeated: dataSeated
+            dataSeated: dataSeated,
+            Schedule:schedule
         });
     }
     catch(err){
+        console.log(err);
         return res.redirect('/');
     }
 }
@@ -232,12 +256,34 @@ let getBillpage = async (req, res) => {
         let day=req.body.day;
         let time=req.body.time;
         let seats=req.body.seats;
+
         await pool.connect();
-        let data_movies=[];
-        let movies = await pool.request().query(`SELECT * FROM PHIM WHERE ID='${id}'`);
-        data_movies=movies.recordset;
+        let schedule=[];
+        let scheme = await pool.request().query(`SELECT * FROM LICH WHERE ID='${id}'`);
+        schedule=scheme.recordset;
+
+        let id_phong=schedule[0].ID_PHONG;
+        let id_phim=schedule[0].ID_PHIM;
+
+        let data_movie=[];
+        let movie = await pool.request().query(`SELECT * FROM PHIM WHERE ID='${id_phim}'`);
+        data_movie=movie.recordset;
+
+        let data_room=[];
+        let room=await pool.request().query(`SELECT * FROM PHONG WHERE ID='${id_phong}'`);
+        data_room=room.recordset;
+
+        let id_rap=data_room[0].ID_RAP;
+
+        let data_branch=[];
+        let branch=await pool.request().query(`SELECT * FROM RAP WHERE ID='${id_rap}'`);
+        data_branch=branch.recordset;
+
         return res.render('bill.ejs',{
-            dataMovies: data_movies,
+            dataMovie: data_movie,
+            dataBranch: data_branch,
+            dataRoom: data_room,
+            dataSchedule: schedule,
             day: day,
             time: time,
             seats: seats,
@@ -278,13 +324,13 @@ let getTicketspage = async (req, res) => {
         let min=d.getMinutes();
         let sec=d.getSeconds()
         let time_pay=hours+":"+ min+":"+sec;
-
         return res.render('history.ejs',{
             dataTickets: data_tickets,
             dataUser: req.session.user,
             dataMovies: data_movies,
             dataChairs: data_chairs,
-            timePay: time_pay
+            timePay: time_pay,
+
         });
     }
     catch(err){
@@ -300,6 +346,7 @@ let processPay = async (req, res) => {
         await pool.connect();
         let id_kh=req.session.user[0].ID;
         let id_phim=req.body.id;
+        let id_lich=req.body.id_lich
         let seats=req.body.seats;
 
         let day=req.body.day;
@@ -312,13 +359,56 @@ let processPay = async (req, res) => {
         let tien=data_movie[0].TIEN;
         let soluong=seats.length;
         for(let i=0; i<seats.length; i++){
-            if(seats[i]!=','){
-                await pool.request().query(`insert into VE values('${id_phim}','${id_kh}','${seats[i]}','${tien}','${soluong}',N'${day}','${time}')`)
-            }
+            await pool.request().query(`insert into VE values('${id_phim}','${id_kh}','${seats[i]}','${id_lich}','${tien}','${soluong}',N'${day}','${time}')`)
         }
         return res.redirect('/history');
     }
     catch(err){
+        return res.redirect('/');
+    }
+}
+
+let getBranchspage = async (req, res) => {
+    try{
+        let id_phim=req.body.id;
+        if(!req.session.user){
+            return res.redirect('/sign_in');
+        }
+        await pool.connect();
+        let data_branchs=[];
+        let branchs= await pool.request().query(`SELECT * FROM RAP`);
+        data_branchs=branchs.recordset;
+        return res.render('branchs.ejs',{
+            dataUser: req.session.user,
+            dataBranchs: data_branchs,
+            idPhim: id_phim
+        });
+    }
+    catch(err){
+        return res.redirect('/');
+    }
+}
+
+let getRoomspage = async (req, res) => {
+    try{
+        let id_rap=req.params.id;
+        let id_phim=req.params.id_phim;
+        if(!req.session.user){
+            return res.redirect('/sign_in');
+        }
+        await pool.connect();
+        let data_rooms=[];
+        let rooms= await pool.request().query(`SELECT * FROM PHONG WHERE ID_RAP='${id_rap}'`);
+        data_rooms=rooms.recordset;
+        
+        return res.render('rooms.ejs',{
+            dataUser: req.session.user,
+            dataRooms: data_rooms,
+            idPhim: id_phim
+        });
+    }
+    catch(err){
+        console.log(err)
         return res.redirect('/');
     }
 }
@@ -338,5 +428,7 @@ module.exports = {
     getSeatSelectionPage,
     getBillpage,
     getTicketspage,
-    processPay
+    processPay,
+    getBranchspage,
+    getRoomspage
 }

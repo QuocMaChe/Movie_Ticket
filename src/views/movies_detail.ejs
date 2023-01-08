@@ -46,6 +46,10 @@
 						<li class="nav-item">
 							<a class="nav-link" href="/Contact_Us">Contact</a>
 						</li>
+
+						<li class="nav-item">
+							<a class="nav-link" href="/history">Tickets</a>
+						</li>
 					</ul>
 
 					<!--/search-right-->
@@ -126,13 +130,11 @@
 	</header>
 	
     <section>
-        <div style="
-        text-align: center;
-        margin-top: 50px;
-        ">
-            <div class="modal-body" id="dynamic-content" style="text-align: center;">
-                <img src="<%=dataMovie[0].IMGPATH%>" class="img-fluid modalimg" alt="" height="600" width="300"/>
-                <p>
+        <div style="text-align: center;
+			margin-top: 50px;">
+                <img src="<%=dataMovie[0].IMGPATH%>" class="img-fluid modalimg" alt="" height="600" width="300" style="text-align: center;
+				margin-top: 50px;"/>
+                <p >
                     <h3>Ngày khởi chiếu&nbsp;: <%=dataMovie[0].NGAYKC%> </h3>
                     <h3>Đạo diễn&nbsp;: <%=dataMovie[0].AUTHOR%> </h3>
                 </p>
@@ -147,16 +149,11 @@
                 </p>
             </div>
             <div style="text-align: center;">
-                <form action="/ticket-booking" method="post">
+                <form action="/branchs" method="post">
                     <input type="hidden" value="<%=dataMovie[0].ID%>" name="id">
                     <button class="btn btn-success">Đặt vé</button>
                 </form>
-                <!--<form action="#" method="post">
-                    <input type="hidden" value="<%=dataMovie[0].MA%>">
-                    <button type="button" class="btn btn-success">Đặt vé</button>
-                </form>-->
             </div>
-        </div>   
     </section>
 	
 	<!-- footer-66 -->

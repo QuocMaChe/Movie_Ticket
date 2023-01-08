@@ -97,14 +97,22 @@
       <br />
       <form action="/paid" method="post">
         <div style="display: flex">
-          <input type="hidden" name="id" id="" value="<%=dataMovies[0].ID%>" />
-          <input type="hidden" name="seats" id="" value="<%=seats%>" />
+          <input type="hidden" name="id" id="" value="<%=dataMovie[0].ID%>" />
+          <input
+            type="hidden"
+            name="id_lich"
+            id=""
+            value="<%=dataSchedule[0].ID%>"
+          />
+          <% for(let i=0; i<seats.length; i++){ %>
+            <input type="hidden" name="seats" id="" value="<%=seats[i]%>" />
+          <% } %>
           <input type="hidden" name="day" id="" value="<%=day%>" />
           <input type="hidden" name="time" id="" value="<%=time%>" />
           <table>
             <tr>
               <th><b>Tên Phim: </b></th>
-              <th><%=dataMovies[0].TEN%></th>
+              <th><%=dataMovie[0].TEN%></th>
             </tr>
             <tr>
               <th><b>Giờ Chiếu:</b></th>
@@ -119,16 +127,29 @@
               <th><%=seats.length%></th>
             </tr>
             <tr>
+              <th><b>Rạp:</b></th>
+              <th><%=dataBranch[0].TEN%></th>
+            </tr>
+            <tr>
+              <th><b>Phòng:</b></th>
+              <th><%=dataRoom[0].TEN%></th>
+            </tr>
+            <tr>
               <th><b>Tiền Vé Đơn:</b></th>
-              <th><%=dataMovies[0].TIEN%></th>
+              <th><%=dataMovie[0].TIEN%></th>
             </tr>
             <tr>
               <th><b>Tổng:</b></th>
-              <th><%=(dataMovies[0].TIEN*2)%></th>
+              <th><%=(dataMovie[0].TIEN*2)%></th>
             </tr>
           </table>
           <div style="margin-left: 50px">
-            <img src="<%=dataMovies[0].IMGPATH%>" alt="" />
+            <img
+              src="<%=dataMovie[0].IMGPATH%>"
+              alt=""
+              height="500px"
+              width="300"
+            />
           </div>
         </div>
         <br />
