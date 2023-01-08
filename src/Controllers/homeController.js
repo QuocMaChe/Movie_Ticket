@@ -312,11 +312,30 @@ let getTicketspage = async (req, res) => {
             let movie = await pool.request().query(`SELECT * FROM PHIM WHERE ID='${data_tickets[i].ID_PHIM}'`);
             data_movies.push(movie.recordset[0]);
         }
-
+        
         let data_chairs=[];
         for(let i=0; i<data_tickets.length; i++){
             let chair = await pool.request().query(`SELECT * FROM GHE WHERE ID='${data_tickets[i].ID_GHE}'`);
             data_chairs.push(chair.recordset[0]);
+        }
+        
+        let data_schedule=[];
+        for(let i=0; i<data_tickets.length; i++){
+            let scheme = await pool.request().query(`SELECT * FROM LICH WHERE ID='${data_tickets[i].ID_LICH}'`);
+            data_schedule.push(scheme.recordset[0]);
+        }
+        
+       
+        let data_rooms=[];
+        for(let i=0; i<data_tickets.length; i++){
+            let rooms = await pool.request().query(`SELECT * FROM PHONG WHERE ID='${data_schedule[i].ID_PHONG}'`);
+            data_rooms.push(rooms.recordset[0]);
+        }
+
+        let data_branchs=[];
+        for(let i=0; i<data_tickets.length; i++){
+            let branchs = await pool.request().query(`SELECT * FROM RAP WHERE ID='${data_rooms[0].ID_RAP}'`);
+            data_branchs.push(branchs.recordset[0]);
         }
 
         var d = new Date(); // for now
@@ -330,7 +349,8 @@ let getTicketspage = async (req, res) => {
             dataMovies: data_movies,
             dataChairs: data_chairs,
             timePay: time_pay,
-
+            dataRooms:data_rooms,
+            dataBranchs: data_branchs
         });
     }
     catch(err){

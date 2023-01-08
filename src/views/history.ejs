@@ -97,6 +97,8 @@
             </th>
             <th align="center">Ảnh</th>
             <th align="center">Giờ Chiếu</th>
+            <th align="center">Rạp</th>
+            <th align="center">Phòng</th>
             <th align="center">Ghế</th>
             <th align="center">Giờ Mua</th>
             <th align="center">Mã QR</th>
@@ -109,6 +111,8 @@
                         margin-bottom:5px">
                     </td>
                     <td align="center"><%=dataTickets[i].GIO%></td>
+                    <td align="center"><%=dataBranchs[i].TEN%></td>
+                    <td align="center"><%=dataRooms[i].TEN%></td>
                     <td align="center"><%=dataChairs[i].COL%><%=dataChairs[i].RO%></td>
                     <td align="center"><%=timePay%></td>
                     <td align="center"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Superqr.svg/800px-Superqr.svg.png" height="150px" width="150px"/></td>
