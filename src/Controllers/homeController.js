@@ -255,7 +255,14 @@ let getBillpage = async (req, res) => {
         let id=req.body.id;
         let day=req.body.day;
         let time=req.body.time;
-        let seats=req.body.seats;
+        let seat=req.body.seats;
+        let seats=[];
+
+        if(typeof seat == 'string'){
+            seats.push(seat)
+        }else{
+            seats=seat;
+        } 
 
         await pool.connect();
         let schedule=[];
@@ -291,7 +298,8 @@ let getBillpage = async (req, res) => {
         });
     }
     catch(err){
-        return res.redirect('/ticket-booking');
+        console.log(err);
+        return res.redirect('/');
     }
 }
 
@@ -338,17 +346,11 @@ let getTicketspage = async (req, res) => {
             data_branchs.push(branchs.recordset[0]);
         }
 
-        var d = new Date(); // for now
-        let hours=d.getHours();
-        let min=d.getMinutes();
-        let sec=d.getSeconds()
-        let time_pay=hours+":"+ min+":"+sec;
         return res.render('history.ejs',{
             dataTickets: data_tickets,
             dataUser: req.session.user,
             dataMovies: data_movies,
             dataChairs: data_chairs,
-            timePay: time_pay,
             dataRooms:data_rooms,
             dataBranchs: data_branchs
         });
