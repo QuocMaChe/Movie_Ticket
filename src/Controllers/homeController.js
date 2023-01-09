@@ -16,7 +16,6 @@ let getHomepage = async (req, res) => {
         });
     }
     catch(err){
-        console.log('check lỗi');
         return res.redirect('/');
     }
 }
@@ -167,7 +166,7 @@ let processSearch = async (req, res) => {
         });
     }
     catch(err){
-        return res.redirect('/sign_in');
+        return res.redirect('/');
     }
 }
 let processContact = async (req, res) => {
@@ -435,6 +434,42 @@ let getRoomspage = async (req, res) => {
     }
 }
 
+let getMoviesTypepage = async (req, res) => {
+    try{
+        let search = req.params.id;
+        let name;
+        if(search==1){
+            name='Hành';
+        }else if(search==2){
+            name='Trinh';
+        }else if(search==3){
+            name='Phiêu';
+        }else if(search==5){
+            name='Giật';
+        }else if(search==5){
+            name='Kinh';
+        }else if(search==6){
+            name='Khoa';
+        }else if(search==7){
+            name='Hoạt';
+        }else{
+            name='Tình';
+        }
+
+        let data_movies=[]
+        await pool.connect();
+        let movies = await pool.request().query(`SELECT * FROM PHIM WHERE THELOAI LIKE '%${name}%'`);
+        data_movies=movies.recordset;
+        return res.render('movies_type.ejs',{
+            dataMovies: data_movies,
+            dataUser: req.session.user
+        });
+    }
+    catch(err){
+        return res.redirect('/');
+    }
+}
+
 module.exports = {
     getHomepage,
     getContactUspage,
@@ -452,5 +487,6 @@ module.exports = {
     getTicketspage,
     processPay,
     getBranchspage,
-    getRoomspage
+    getRoomspage,
+    getMoviesTypepage
 }

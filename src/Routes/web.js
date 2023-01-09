@@ -18,6 +18,7 @@ const initWebRoute = (app) => {
     router.post('/bill', homeController.getBillpage);
     router.post('/paid', homeController.processPay);
     router.get('/history', homeController.getTicketspage);
+    router.get('/search_type/id/:id', homeController.getMoviesTypepage);
 
     router.post('/branchs', homeController.getBranchspage);
     router.get('/rooms/id/:id/id_phim/:id_phim', homeController.getRoomspage);

@@ -207,4 +207,7 @@ select * from LICH
 select * from PHONG
 select * from KHACHHANG
 select * from RAP
-delete from VE where ID=5
+
+SELECT * FROM PHIM WHERE THELOAI LIKE '%Trinh%'
+
+update PHIM set THELOAI=N'Hành động, Trinh sát' where ID=3

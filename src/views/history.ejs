@@ -32,58 +32,112 @@
   </head>
 
   <body>
-    <header id="site-header" class="w3l-header fixed-top">
-      <!--/nav-->
-      <nav class="navbar navbar-expand-lg navbar-light fill px-lg-0 py-0 px-3">
-        <div class="container">
-          <h1>
-            <a class="navbar-brand" href="/"
-              ><span class="fa fa-play icon-log" aria-hidden="true"></span>
-              Movie-Ticket-Booking_Group14
-            </a>
-          </h1>
+    <!-- header -->
+	<header id="site-header" class="w3l-header fixed-top">
+		<!--/nav-->
+		<nav class="navbar navbar-expand-lg navbar-light fill px-lg-0 py-0 px-3">
+			<div class="container">
+				<h1><a class="navbar-brand" href="/"><span class="fa fa-play icon-log"
+							aria-hidden="true"></span>
+							Movie-Ticket-Booking_Group14 </a></h1>
+				<!-- if logo is image enable this   
+							<a class="navbar-brand" href="#index.html">
+								<img src="image-path" alt="Your logo" title="Your logo" style="height:35px;" />
+							</a> -->
+				<button class="navbar-toggler collapsed" type="button" data-toggle="collapse"
+					data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+					aria-label="Toggle navigation">
+					<!-- <span class="navbar-toggler-icon"></span> -->
+					<span class="fa icon-expand fa-bars"></span>
+					<span class="fa icon-close fa-times"></span>
+				</button>
 
-          <div
-            class="collapse navbar-collapse"
-            id="navbarSupportedContent"
-          ></div>
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav ml-auto">
+						<li class="nav-item active">
+							<a class="nav-link" href="/">Home</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="/movies">Movies</a>
+						</li>
+						
+						<li class="nav-item">
+							<a class="nav-link" href="/Contact_Us">Contact</a>
+						</li>
 
-          <% if(typeof dataUser == 'undefined'){ %>
-          <div
-            class="Login_SignUp"
-            id="login"
-            style="font-size: 2rem; display: inline-block; position: relative"
-          >
-            <!-- <li class="nav-item"> -->
-            <a class="nav-link" href="/sign_in"
-              ><i class="fa fa-user-circle-o"></i
-            ></a>
-            <!-- </li> -->
-          </div>
-          <% }else{ %>
-          <span> <%=dataUser[0].TEN%> </span>
+						<li class="nav-item">
+							<a class="nav-link" href="/history">Tickets</a>
+						</li>
+					</ul>
 
-          <form action="/process_sign_out">
-            <button class="btn btn-success">Đăng xuất</button>
-          </form>
-          <% } %>
-          <!-- toggle switch for light and dark theme -->
-          <div class="mobile-position">
-            <nav class="navigation">
-              <div class="theme-switch-wrapper">
-                <label class="theme-switch" for="checkbox">
-                  <input type="checkbox" id="checkbox" />
-                  <div class="mode-container">
-                    <i class="gg-sun"></i>
-                    <i class="gg-moon"></i>
-                  </div>
-                </label>
-              </div>
-            </nav>
-          </div>
-        </div>
-      </nav>
-    </header>
+					<!--/search-right-->
+					<!--/search-right-->
+					<div class="search-right">
+						<a href="#search" class="btn search-hny mr-lg-3 mt-lg-0 mt-4" title="search">Search <span
+								class="fa fa-search ml-3" aria-hidden="true"></span></a>
+						<!-- search popup -->
+						<div id="search" class="pop-overlay">
+							<div class="popup">
+								<form action="#" method="post" class="search-box">
+									<input type="search" placeholder="Search your Keyword" name="search"
+										required="required" autofocus="">
+									<button type="submit" class="btn"><span class="fa fa-search"
+											aria-hidden="true"></span></button>
+								</form>
+								<div class="browse-items">
+									<h3 class="hny-title two mt-md-5 mt-4">Browse all:</h3>
+									<ul class="search-items">
+										<li><a href="/search_type/id/1">Hành Động</a></li>
+										<li><a href="/search_type/id/2">Trinh sát</a></li>
+										<li><a href="/search_type/id/3">Phiêu lưu</a></li>
+										<li><a href="/search_type/id/4">Giật gân</a></li>
+										<li><a href="/search_type/id/5">Kinh dị</a></li>
+										<li><a href="/search_type/id/6">Khoa học viễn tưởng</a></li>
+										<li><a href="/search_type/id/7">Hoạt hình</a></li>
+										<li><a href="/search_type/id/8">Tình cảm</a></li>
+									</ul>
+								</div>
+							</div>
+							<a class="close" href="#close">×</a>
+						</div>
+						<!-- /search popup -->
+						<!--/search-right-->
+
+					</div>
+					<% if(typeof dataUser == 'undefined'){ %>
+						<div class="Login_SignUp" id="login"
+							style="font-size: 2rem ; display: inline-block; position: relative;">
+							<!-- <li class="nav-item"> -->
+								<a class="nav-link" href="/sign_in"><i class="fa fa-user-circle-o"></i></a>
+								<!-- </li> -->
+						</div>
+					<% }else{ %>
+						<span>
+							<%=dataUser[0].TEN%>
+						</span>
+
+						<form action="/process_sign_out">
+							<button class="btn btn-success">Đăng xuất</button>
+						</form>
+					<% } %>
+				</div>
+				<!-- toggle switch for light and dark theme -->
+				<div class="mobile-position">
+					<nav class="navigation">
+						<div class="theme-switch-wrapper">
+							<label class="theme-switch" for="checkbox">
+								<input type="checkbox" id="checkbox">
+								<div class="mode-container">
+									<i class="gg-sun"></i>
+									<i class="gg-moon"></i>
+								</div>
+							</label>
+						</div>
+					</nav>
+				</div>
+			</div>
+		</nav>
+	</header>
     <br /><br /><br />
 
     <div class="container">
