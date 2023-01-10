@@ -19,9 +19,13 @@ const initWebRoute = (app) => {
     router.post('/paid', homeController.processPay);
     router.get('/history', homeController.getTicketspage);
     router.get('/search_type/id/:id', homeController.getMoviesTypepage);
-
     router.post('/branchs', homeController.getBranchspage);
     router.get('/rooms/id/:id/id_phim/:id_phim', homeController.getRoomspage);
+    //Admin
+    router.get('/admin', homeController.getAdminpage);
+    router.get('/admin/contacts', homeController.getAdminContactpage);
+    router.get('/admin/add_movie', homeController.getAdminAddMoviepage);
+
     return app.use('/', router);
 }
 //

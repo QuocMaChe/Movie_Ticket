@@ -481,7 +481,45 @@ let getMoviesTypepage = async (req, res) => {
         return res.redirect('/');
     }
 }
+//Admin
+let getAdminpage = async (req, res) => {
+    try{
+        let data_movies=[];
+        await pool.connect();
+        let movies= await pool.request().query(`select * from PHIM `);
+        data_movies=movies.recordset;
+        return res.render('./admin/admin_index.ejs',{
+            dataMovies: data_movies
+        });
+    }
+    catch(err){
+        return res.redirect('/admin');
+    }
+}
+let getAdminContactpage = async (req, res) => {
+    try{
+        let data_contacts=[];
+        await pool.connect();
+        let contacts= await pool.request().query(`select * from PHANHOI `);
+        data_contacts=contacts.recordset;
+        console.log(data_contacts);
+        return res.render('./admin/contacts.ejs',{
+            dataContacts: data_contacts
+        });
+    }
+    catch(err){
+        return res.redirect('/admin');
+    }
+}
 
+let getAdminAddMoviepage = async (req, res) => {
+    try{
+        return res.render('./admin/addmovie.ejs');
+    }
+    catch(err){
+        return res.redirect('/admin');
+    }
+}
 module.exports = {
     getHomepage,
     getContactUspage,
@@ -500,5 +538,8 @@ module.exports = {
     processPay,
     getBranchspage,
     getRoomspage,
-    getMoviesTypepage
+    getMoviesTypepage,
+    getAdminpage,
+    getAdminContactpage,
+    getAdminAddMoviepage
 }
