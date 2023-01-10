@@ -107,6 +107,12 @@ let processSignIn = async (req, res) => {
     try{
         let email = req.body.email;
         let password = req.body.password;
+        if(email == '' || password == ''){
+            let error=2;
+            return res.render('sign_in.ejs',{
+                Error:error
+            });
+        }
         let data_user=[];
         await pool.connect();
         let user= await pool.request().query(`select * from KHACHHANG where EMAIL='${email}' and PWD ='${password}'`);
@@ -135,6 +141,12 @@ let processSignUp = async (req, res) => {
         let name = req.body.name;
         let email = req.body.email;
         let password = req.body.password;
+        if(name == '' || email == '' || password == ''){
+            let error=2;
+            return res.render('sign_in.ejs',{
+                Error:error
+            });
+        }
         await pool.connect();
         let data_users=[];
         let users=await pool.request().query(`select * from KHACHHANG where EMAIL='${email}'`);

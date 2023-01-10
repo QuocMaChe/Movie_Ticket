@@ -208,6 +208,7 @@ select * from PHONG
 select * from KHACHHANG
 select * from RAP
 
-SELECT * FROM PHIM WHERE THELOAI LIKE '%Trinh%'
+SELECT * FROM PHIM WHERE THELOAI LIKE '%Khoa%'
+SELECT * FROM PHIM WHERE THELOAI LIKE '%lưu%'
 
 update PHIM set THELOAI=N'Hành động, Trinh sát' where ID=3
