@@ -16,6 +16,7 @@ let getHomepage = async (req, res) => {
         });
     }
     catch(err){
+        console.log(err);
         return res.redirect('/');
     }
 }
@@ -229,7 +230,7 @@ let getSeatSelectionPage = async (req, res) => {
         seatE=listE.recordset;
 
         let dataSeated=[];
-        let seated = await pool.request().query(`SELECT ID_GHE FROM VE WHERE ID_PHIM='${id}' and NGAY='${day}' and GIO='${time}'`);
+        let seated = await pool.request().query(`SELECT ID_GHE FROM VE WHERE ID_PHIM='${id}' and NGAY='${day}' and GIO='${time}' and ID_KH='${req.session.user[0].ID}'`);
         for(let i=0; i<seated.recordset.length; i++){
             dataSeated.push(seated.recordset[i].ID_GHE);
         }
@@ -353,7 +354,7 @@ let getTicketspage = async (req, res) => {
 
         let data_branchs=[];
         for(let i=0; i<data_tickets.length; i++){
-            let branchs = await pool.request().query(`SELECT * FROM RAP WHERE ID='${data_rooms[0].ID_RAP}'`);
+            let branchs = await pool.request().query(`SELECT * FROM RAP WHERE ID='${data_rooms[i].ID_RAP}'`);
             data_branchs.push(branchs.recordset[0]);
         }
 
@@ -380,7 +381,15 @@ let processPay = async (req, res) => {
         let id_kh=req.session.user[0].ID;
         let id_phim=req.body.id;
         let id_lich=req.body.id_lich
-        let seats=req.body.seats;
+        let seat=req.body.seats;
+
+        let seats=[];
+
+        if(typeof seat == 'string'){
+            seats.push(seat)
+        }else{
+            seats=seat;
+        } 
 
         let day=req.body.day;
         let time=req.body.time;
@@ -394,6 +403,7 @@ let processPay = async (req, res) => {
         for(let i=0; i<seats.length; i++){
             await pool.request().query(`insert into VE values('${id_phim}','${id_kh}','${seats[i]}','${id_lich}','${tien}','${soluong}',N'${day}','${time}')`)
         }
+        
         return res.redirect('/history');
     }
     catch(err){

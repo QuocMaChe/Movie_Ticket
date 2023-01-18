@@ -97,6 +97,7 @@ CREATE TABLE PHONG (
 
 
 go
+
 Create 
 --drop
 table GHE(
@@ -212,3 +213,4 @@ SELECT * FROM PHIM WHERE THELOAI LIKE '%Khoa%'
 SELECT * FROM PHIM WHERE THELOAI LIKE '%lưu%'
 
 update PHIM set THELOAI=N'Hành động, Trinh sát' where ID=3
+
